@@ -2,19 +2,19 @@ const express = require("express");
 const expressHbs = require("express-handlebars");
 const hbs = require("hbs");
 const app = express();
+const mysql = require('mysql2');
 
-app.engine("hbs", expressHbs.engine(
-    {
-        layoutsDir: "views/layouts",
-        defaultLayout: "layout",
-        extname: "hbs"
-    }
-))
 app.set("view engine", "hbs");
 hbs.registerPartials(__dirname + "/views/partials");
 
-app.use("/", function(_, response){
-
-    response.render("home.hbs");
+app.get("/", function(req, res){
+    res.render("home.hbs");
 });
-app.listen(3000);
+
+app.get("/create", function(req, res){
+    res.render("create.hbs");
+});
+
+app.listen(3000, function(){
+    console.log("Сервер ожидает подключения...");
+});
