@@ -1,0 +1,23 @@
+<header class="header">
+  <div class="header__container">
+    <div class="header__logo">
+      <div class="header__logo__img">
+        <a href="#">
+          <img src="assets/img/logo.svg" alt="">
+        </a>
+      </div>
+      <div class="header__logo__text">
+        <a href="#">FLIT</a>
+      </div>
+    </div>
+    <div class="loginSection" fxHide.xs>
+      <button class="loginButton">Войти</button>
+    </div>
+    <div fxHide.gt-xs class="headerButton">
+      <button mat-icon-button (click)="onToggleSidenav()">
+        <!--<mat-icon>menu</mat-icon>-->
+        menu
+      </button>
+    </div>
+  </div>
+</header>
