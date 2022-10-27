@@ -1,31 +1,90 @@
-.header {
-  width: 100%;
-  height: 70px;
-  background-color: #222324;
-  display: flex;
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover, a:active{
+  color: lightgray;
+}
+
+a.activeLink{
+  color: #DE2C6C;
+}
+
+a.imgLogoLink {
+  height: 50px;
+}
+
+.navigation-items{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.imgLogoWrapper {
+  display: grid;
   justify-content: center;
   align-items: center;
+}
 
-  &__container {
-    width: 100%;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: row;
+:link:not(a.headerNavigationLink):hover {
+  opacity: 0.8;
+  transition: opacity 0.2s ease-in-out;
+}
+
+a.imgLogoLink {
+  height: 53px;
+}
+
+.logoText {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+}
+
+mat-toolbar{
+  border-radius: 3px;
+  height: 60px;
+  background-color: #242424;
+}
+
+.headerButton {
+  justify-self: flex-end;
+}
+
+.example-spacer {
+  display: none;
+}
+
+.loginSection {
+  display: grid;
+  justify-self: end;
+  justify-content: center;
+  align-items: center;
+  margin-left: 14px;
+}
+
+.loginSection :hover {
+  opacity: 0.8;
+  transition: opacity 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.loginButton {
+  background: linear-gradient(to right, #25ABDF, #3FE297);
+  padding: 10px 26px;
+  border-radius: 25px;
+  color: white;
+}
+
+@media(max-width: 959px){
+  mat-toolbar{
+    border-radius: 0px;
   }
 
-  &__logo {
-    display: flex;
-    flex-direction: row;
-
-    &__text {
-      display: grid;
-      justify-content: center;
-      align-items: center;
-
-      & > a {
-        color: white;
-        font-size: 36px;
-      }
-    }
+  .example-spacer {
+    display: block;
+    flex: 1 1 auto;
   }
 }

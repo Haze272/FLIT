@@ -1,23 +1,39 @@
-<header class="header">
-  <div class="header__container">
-    <div class="header__logo">
-      <div class="header__logo__img">
-        <a href="#">
-          <img src="assets/img/logo.svg" alt="">
-        </a>
-      </div>
-      <div class="header__logo__text">
-        <a href="#">FLIT</a>
-      </div>
+<mat-toolbar color="primary">
+  <div fxLayout="row" fxLayoutGap="7px">
+    <div class="imgLogoWrapper">
+      <a routerLink="/" class="imgLogoLink">
+        <img src="/assets/img/logo.svg" alt="">
+      </a>
     </div>
-    <div class="loginSection" fxHide.xs>
-      <button class="loginButton">Войти</button>
-    </div>
-    <div fxHide.gt-xs class="headerButton">
-      <button mat-icon-button (click)="onToggleSidenav()">
-        <!--<mat-icon>menu</mat-icon>-->
-        menu
-      </button>
+    <div class="logoText">
+      <a class="logoText" routerLink="/">Senton</a>
     </div>
   </div>
-</header>
+  <span class="example-spacer"></span>
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+    <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+      <li>
+        <a routerLink="/play" routerLinkActive="activeLink">Играть</a>
+      </li>
+      <li>
+        <a routerLink="/rules" routerLinkActive="activeLink">Правила</a>
+      </li>
+      <li>
+        <a routerLink="/server-list" routerLinkActive="activeLink">Сервера</a>
+      </li>
+      <li>
+        <a routerLink="/shop" routerLinkActive="activeLink">Донат</a>
+      </li>
+    </ul>
+  </div>
+  <div class="loginSection" fxHide.xs>
+    <button class="loginButton">
+      Войти
+    </button>
+  </div>
+  <div fxHide.gt-xs class="headerButton">
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
