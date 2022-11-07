@@ -12,14 +12,13 @@ import { MaterialModule } from "./material.module";
   declarations: [
     AppComponent,
     HeaderComponent,
-    SidenavComponent
+    SidenavComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,72 @@
+.sidenav-wrapper {
+  width: 100vw;
+  height: calc(100vh - 60px);
+  background-color: rgba(0, 0, 0, 0.44);
+  position: absolute;
+  top: 60px;
+}
+
+.sidenav {
+  background-color: #3F51B5;
+  width: 200px;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+a.sidenavLink{
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  padding-left: 6px;
+  color: white;
+}
+
+a:hover, a:active{
+  opacity: 0.8;
+}
+
+a.activeLink{
+  color: #DE2C6C;
+}
+
+.nav-caption{
+
+}
+
+mat-nav-list {
+  background-color: #242424;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.example-spacer {
+  display: block;
+  flex: 1 1 auto;
+}
+
+.loginSection {
+  display: grid;
+  align-self: start;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.loginSection :hover {
+  opacity: 0.8;
+  transition: opacity 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.loginButton {
+  background: linear-gradient(to right, #25ABDF, #3FE297);
+  padding: 10px 26px;
+  border-radius: 25px;
+}
+
+.loginButton>span {
+  font-size: 14px;
+  color: white;
+}

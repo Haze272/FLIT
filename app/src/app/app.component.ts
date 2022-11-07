@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  public isToggled: boolean = false;
+
+  toggle() {
+    this.isToggled === true ? this.isToggled = false : this.isToggled = true;
+  }
 }

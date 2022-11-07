@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <div fxLayout="row" fxLayoutGap="7px">
+  <div class="logoWrapper">
     <div class="imgLogoWrapper">
       <a routerLink="/" class="imgLogoLink">
         <img src="/assets/img/logo.svg" alt="">
@@ -9,9 +9,8 @@
       <a class="logoText" routerLink="/">Senton</a>
     </div>
   </div>
-  <span class="example-spacer"></span>
-  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
-    <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+  <div class="nav-wrapper">
+    <ul class="navigation-items">
       <li>
         <a routerLink="/play" routerLinkActive="activeLink">Играть</a>
       </li>
@@ -26,12 +25,12 @@
       </li>
     </ul>
   </div>
-  <div class="loginSection" fxHide.xs>
+  <div class="loginSection">
     <button class="loginButton">
       Войти
     </button>
   </div>
-  <div fxHide.gt-xs class="headerButton">
+  <div class="headerButton">
     <button mat-icon-button (click)="onToggleSidenav()">
       <mat-icon>menu</mat-icon>
     </button>
