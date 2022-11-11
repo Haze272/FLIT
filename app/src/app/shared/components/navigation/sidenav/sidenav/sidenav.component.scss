@@ -1,13 +1,13 @@
 .sidenav-wrapper {
   width: 100vw;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 70px);
   background-color: rgba(0, 0, 0, 0.44);
   position: absolute;
-  top: 60px;
+  top: 70px;
 }
 
 .sidenav {
-  background-color: #3F51B5;
+  background-color: #222324;
   width: 200px;
   height: inherit;
   display: flex;
@@ -32,13 +32,6 @@ a.activeLink{
 
 .nav-caption{
 
-}
-
-mat-nav-list {
-  background-color: #242424;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 .example-spacer {

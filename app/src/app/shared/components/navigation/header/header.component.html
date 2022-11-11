@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<header>
   <div class="logoWrapper">
     <div class="imgLogoWrapper">
       <a routerLink="/" class="imgLogoLink">
@@ -6,7 +6,7 @@
       </a>
     </div>
     <div class="logoText">
-      <a class="logoText" routerLink="/">Senton</a>
+      <a class="logoText" routerLink="/">FLIT</a>
     </div>
   </div>
   <div class="nav-wrapper">
@@ -26,13 +26,16 @@
     </ul>
   </div>
   <div class="loginSection">
-    <button class="loginButton">
+    <a class="loginButton">
       Войти
-    </button>
+    </a>
   </div>
-  <div class="headerButton">
-    <button mat-icon-button (click)="onToggleSidenav()">
-      <mat-icon>menu</mat-icon>
-    </button>
+  <div class="menuButton">
+    <a>
+      <input type="checkbox" (input)="onToggleSidenav()" id="toggle-menu"/>
+      <label for="toggle-menu">
+        <span class="menu-icon"></span>
+      </label>
+    </a>
   </div>
-</mat-toolbar>
+</header>

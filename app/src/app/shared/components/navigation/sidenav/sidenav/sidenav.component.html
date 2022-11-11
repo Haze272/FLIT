@@ -1,30 +1,30 @@
 <div class="sidenav-wrapper" (click)="onSidenavClose()">
   <div class="sidenav">
-    <a mat-list-item routerLink="/" (click)="onSidenavClose()">
+    <a routerLink="/" (click)="onSidenavClose()">
       <mat-icon [ngStyle]="{'color': '#ededed'}">home</mat-icon>
       <a class="sidenavLink" routerLink="/" routerLinkActive="activeLink">
         Главная
       </a>
     </a>
-    <a mat-list-item routerLink="/play" (click)="onSidenavClose()">
+    <a routerLink="/play" (click)="onSidenavClose()">
       <mat-icon [ngStyle]="{'color': '#ededed'}">play_circle_filled</mat-icon>
       <a class="sidenavLink" routerLink="/play" routerLinkActive="activeLink">
         Играть
       </a>
     </a>
-    <a mat-list-item routerLink="/rules" (click)="onSidenavClose()">
+    <a routerLink="/rules" (click)="onSidenavClose()">
       <mat-icon [ngStyle]="{'color': '#ededed'}">description</mat-icon>
       <a class="sidenavLink" routerLink="/rules" routerLinkActive="activeLink">
         Правила
       </a>
     </a>
-    <a mat-list-item routerLink="/server-list" (click)="onSidenavClose()">
+    <a routerLink="/server-list" (click)="onSidenavClose()">
       <mat-icon [ngStyle]="{'color': '#ededed'}">dns</mat-icon>
       <a class="sidenavLink" routerLink="/server-list" routerLinkActive="activeLink">
         Сервера
       </a>
     </a>
-    <a mat-list-item  routerLink="/shop" (click)="onSidenavClose()">
+    <a routerLink="/shop" (click)="onSidenavClose()">
       <mat-icon [ngStyle]="{'color': '#ededed'}">account_balance</mat-icon>
       <a class="sidenavLink" routerLink="/shop" routerLinkActive="activeLink">
         Донат
