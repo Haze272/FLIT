@@ -1,0 +1,62 @@
+.wrapper {
+  display: flex;
+  gap: 20px;
+
+  span {
+    color: #4f6173;
+  }
+
+  a {
+    color: #4f6173;
+
+    &:hover {
+      color: #2d343d;
+    }
+  }
+}
+
+.task-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  gap: 5px;
+
+  .title {
+    font-size: 24px;
+  }
+
+  .tags-container {
+    display: flex;
+    gap: 5px;
+
+    .tag {
+      border: 1px solid #b9b9b9;
+      border-radius: 10px;
+      padding: 3px 5px;
+      font-size: 12px;
+
+      &:hover {
+        background-color: #676767;
+        color: white;
+      }
+    }
+  }
+}
+
+.price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: start;
+  gap: 5px;
+  min-width: 120px;
+
+  span {
+    word-break: normal;
+  }
+
+  img {
+    width: 32px;
+    filter: invert(11%) sepia(1%) saturate(2073%) hue-rotate(224deg) brightness(94%) contrast(91%);
+  }
+}

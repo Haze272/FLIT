@@ -1,0 +1,14 @@
+<div class="wrapper">
+  <div class="task-body">
+    <a href="" class="title">{{ task.title }}</a>
+    <span class="responses">{{ task.responsesCount }} откликов</span>
+    <span class="date">{{ task.date }}</span>
+    <div class="tags-container">
+      <a href="#" class="tag" *ngFor="let tag of task.tags">{{ tag }}</a>
+    </div>
+  </div>
+  <div class="price">
+    <img src="/assets/img/cash.svg" alt="">
+    <span>{{ task.price }} руб.</span>
+  </div>
+</div>

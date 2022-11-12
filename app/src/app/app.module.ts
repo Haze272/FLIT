@@ -8,6 +8,7 @@ import { SidenavComponent } from './shared/components/navigation/sidenav/sidenav
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './pages/home/home.component';
 import {FormsModule} from "@angular/forms";
+import { TaskComponent } from './pages/home/components/task/task.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import {FormsModule} from "@angular/forms";
     HeaderComponent,
     SidenavComponent,
     HomeComponent,
+    TaskComponent,
   ],
     imports: [
         BrowserModule,

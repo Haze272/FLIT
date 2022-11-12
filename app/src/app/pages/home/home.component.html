@@ -1,4 +1,39 @@
 <section>
-  <p>home works!</p>
+  <main>
+    <h1>Заказы</h1>
+    <input type="text" placeholder="Поиск заказов">
+    <div class="sort-container">
+      Сортировать по:
+      <a href="">цене</a>
+      <a href="">новизне</a>
+    </div>
+    <div class="taskWrapper">
+      <app-task *ngFor="let task of tasks" [task]="task"></app-task>
+    </div>
+  </main>
+  <div class="category-sorting">
+    <div class="option">
+      <p>Сфера деятельности:</p>
+      <div class="checkbox-container">
+        <div class="task-type" *ngFor="let taskType of taskTypes">
+          <input type="checkbox">
+          <span>{{ taskType.name }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="option">
+      <p>Дополнительно:</p>
+      <div class="checkbox-container">
+        <div class="additional-option">
+          <input type="checkbox">
+          <span>С отзывами</span>
+        </div>
+        <div class="additional-option">
+          <input type="checkbox">
+          <span>С указанной стоимостью</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
