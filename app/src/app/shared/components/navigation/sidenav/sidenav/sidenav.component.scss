@@ -12,6 +12,7 @@
   height: inherit;
   display: flex;
   flex-direction: column;
+  padding: 20px 0;
 }
 
 a.sidenavLink{
@@ -39,27 +40,21 @@ a.activeLink{
   flex: 1 1 auto;
 }
 
-.loginSection {
-  display: grid;
-  align-self: start;
-  justify-content: center;
-  align-items: center;
-  margin-left: 10px;
-}
+.navigation-items{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 
-.loginSection :hover {
-  opacity: 0.8;
-  transition: opacity 0.2s ease-in-out;
-  cursor: pointer;
-}
+  & li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-.loginButton {
-  background: linear-gradient(to right, #25ABDF, #3FE297);
-  padding: 10px 26px;
-  border-radius: 25px;
-}
-
-.loginButton>span {
-  font-size: 14px;
-  color: white;
+    a {
+      color: white;
+    }
+  }
 }

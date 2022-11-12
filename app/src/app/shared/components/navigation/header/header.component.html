@@ -12,16 +12,13 @@
   <div class="nav-wrapper">
     <ul class="navigation-items">
       <li>
-        <a routerLink="/play" routerLinkActive="activeLink">Играть</a>
+        <a routerLink="/play" routerLinkActive="activeLink">Заказы</a>
       </li>
       <li>
-        <a routerLink="/rules" routerLinkActive="activeLink">Правила</a>
+        <a routerLink="/rules" routerLinkActive="activeLink">Отклики</a>
       </li>
       <li>
-        <a routerLink="/server-list" routerLinkActive="activeLink">Сервера</a>
-      </li>
-      <li>
-        <a routerLink="/shop" routerLinkActive="activeLink">Донат</a>
+        <a routerLink="/server-list" routerLinkActive="activeLink">Специалисты</a>
       </li>
     </ul>
   </div>
@@ -32,7 +29,7 @@
   </div>
   <div class="menuButton">
     <a>
-      <input type="checkbox" (input)="onToggleSidenav()" id="toggle-menu"/>
+      <input type="checkbox" [(ngModel)]="isChecked" (change)="onToggleSidenav()" id="toggle-menu"/>
       <label for="toggle-menu">
         <span class="menu-icon"></span>
       </label>

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit {
   public onToggleSidenav = () => {
     this.sidenavToggle.emit();
   }
+  @Input() isChecked: boolean = false;
 
   constructor() { }
 

@@ -1,50 +1,19 @@
-<div class="sidenav-wrapper" (click)="onSidenavClose()">
+<div
+  class="sidenav-wrapper"
+  (click)="onSidenavClose()"
+>
   <div class="sidenav">
-    <a routerLink="/" (click)="onSidenavClose()">
-      <mat-icon [ngStyle]="{'color': '#ededed'}">home</mat-icon>
-      <a class="sidenavLink" routerLink="/" routerLinkActive="activeLink">
-        Главная
-      </a>
-    </a>
-    <a routerLink="/play" (click)="onSidenavClose()">
-      <mat-icon [ngStyle]="{'color': '#ededed'}">play_circle_filled</mat-icon>
-      <a class="sidenavLink" routerLink="/play" routerLinkActive="activeLink">
-        Играть
-      </a>
-    </a>
-    <a routerLink="/rules" (click)="onSidenavClose()">
-      <mat-icon [ngStyle]="{'color': '#ededed'}">description</mat-icon>
-      <a class="sidenavLink" routerLink="/rules" routerLinkActive="activeLink">
-        Правила
-      </a>
-    </a>
-    <a routerLink="/server-list" (click)="onSidenavClose()">
-      <mat-icon [ngStyle]="{'color': '#ededed'}">dns</mat-icon>
-      <a class="sidenavLink" routerLink="/server-list" routerLinkActive="activeLink">
-        Сервера
-      </a>
-    </a>
-    <a routerLink="/shop" (click)="onSidenavClose()">
-      <mat-icon [ngStyle]="{'color': '#ededed'}">account_balance</mat-icon>
-      <a class="sidenavLink" routerLink="/shop" routerLinkActive="activeLink">
-        Донат
-      </a>
-    </a>
+    <ul class="navigation-items">
+      <li>
+        <a routerLink="/play" routerLinkActive="activeLink">Заказы</a>
+      </li>
+      <li>
+        <a routerLink="/rules" routerLinkActive="activeLink">Отклики</a>
+      </li>
+      <li>
+        <a routerLink="/server-list" routerLinkActive="activeLink">Специалисты</a>
+      </li>
+    </ul>
     <span class="example-spacer"></span>
-    <div class="loginSection">
-      <div class="loginButton">
-        <span>Войти</span>
-      </div>
-    </div>
-    <!--
-    <mat-list-item [matMenuTriggerFor]="menu">
-      <mat-icon>unfold_more</mat-icon>
-      <a matline>Example</a>
-    </mat-list-item>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="onSidenavClose()">View profile</button>
-      <button mat-menu-item (click)="onSidenavClose()">Add contact</button>
-    </mat-menu>
-    -->
   </div>
 </div>

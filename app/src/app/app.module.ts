@@ -7,6 +7,7 @@ import { HeaderComponent } from './shared/components/navigation/header/header.co
 import { SidenavComponent } from './shared/components/navigation/sidenav/sidenav/sidenav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './pages/home/home.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -15,11 +16,12 @@ import { HomeComponent } from './pages/home/home.component';
     SidenavComponent,
     HomeComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        FormsModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,3 +1,6 @@
-<app-sidenav *ngIf="isToggled" (sidenavClose)="toggle()"></app-sidenav>
-<app-header (sidenavToggle)="toggle()"></app-header>
+<app-sidenav
+  *ngIf="isToggled"
+  (sidenavClose)="toggle()"
+></app-sidenav>
+<app-header (sidenavToggle)="toggle()" [isChecked]="isToggled"></app-header>
 <router-outlet></router-outlet>
