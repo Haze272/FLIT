@@ -1,6 +1,7 @@
 import {ITaskType} from "./task-type.interface";
 
 export interface ITask {
+  id: number;
   title: string,
   description: string,
   price: number,

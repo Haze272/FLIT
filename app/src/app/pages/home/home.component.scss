@@ -18,12 +18,6 @@ main {
   padding: 20px 0 0 0;
 }
 
-h1 {
-  color: #494949;
-  font-size: 28px;
-  font-weight: 500;
-}
-
 .sort-container {
   display: flex;
   gap: 5px;
@@ -58,6 +52,12 @@ h1 {
       font-size: 13px;
       border-bottom: 1px dashed #757575;
     }
+  }
+}
+
+@media (max-width: 991.98px) {
+  .category-sorting {
+    display: none;
   }
 }
 

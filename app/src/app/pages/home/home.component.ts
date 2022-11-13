@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {TaskService} from "./services/task.service";
+import {TaskService} from "../../shared/services/task.service";
 import {ITask} from "../../shared/models/task.interface";
 import {ITaskType} from "../../shared/models/task-type.interface";
 
@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   constructor(private taskService: TaskService) { }
 
   ngOnInit(): void {
-    this.tasks = this.taskService.getMockProducts();
+    this.tasks = this.taskService.getMockTasks();
     this.taskTypes = this.taskService.getMockTaskTypes();
   }
 

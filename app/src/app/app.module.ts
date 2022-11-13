@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './pages/home/home.component';
 import {FormsModule} from "@angular/forms";
 import { TaskComponent } from './pages/home/components/task/task.component';
+import { TaskDetailComponent } from './pages/task-detail/task-detail.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { TaskComponent } from './pages/home/components/task/task.component';
     SidenavComponent,
     HomeComponent,
     TaskComponent,
+    TaskDetailComponent,
   ],
     imports: [
         BrowserModule,

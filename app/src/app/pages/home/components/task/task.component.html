@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="task-body">
-    <a href="" class="title">{{ task.title }}</a>
+    <a [routerLink]="['tasks', task.id]" class="title">{{ task.title }}</a>
     <span class="responses">{{ task.responsesCount }} откликов</span>
     <span class="date">{{ task.date }}</span>
     <div class="tags-container">

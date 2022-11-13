@@ -1,10 +1,39 @@
-import {ITask} from "../../../shared/models/task.interface";
-import {ITaskType} from "../../../shared/models/task-type.interface";
+import {ITask} from "../models/task.interface";
+import {ITaskType} from "../models/task-type.interface";
 
 export class TaskService {
-  getMockProducts() {
+  unknownTask: ITask = {
+    id: 0,
+    title: 'N/A',
+    description: 'Task does not exist!',
+    price: 0,
+    tags: [],
+    taskType: {
+      name: 'N/A',
+      description: 'N/A'
+    },
+    date: 'N/A',
+    responsesCount: 0
+  }
+
+  getProductById(id: number) {
+    let tasks = this.getMockTasks();
+
+    let foundTask: ITask | undefined =  tasks.find((element) => {
+      return element.id === id
+    });
+
+    if (foundTask) {
+      return foundTask;
+    } else {
+      return this.unknownTask;
+    }
+  }
+
+  getMockTasks() {
     let products: ITask[] = [
       {
+        id: 1,
         title: 'Доработка проекта на php',
         description: 'Требуется включиться в два проекта и дорабатывать их по задачам. Только бек. Фронт написан на vue. Команды и студии не интересны. Отклик начните с ответа на три плюс три. Более детальное обсуждение с каждым разработчиком индивидуально. В отклике укажите, сколько готовый уделять в день, когда готовы приступить и где находитесь территориально, работа сделка или по часам.',
         price: 3000,
@@ -17,6 +46,7 @@ export class TaskService {
         responsesCount: 4
       },
       {
+        id: 2,
         title: 'Написать на Laravel игровой сайт (для настольных игр)',
         description: 'Необходимо на Laravel (без использования Node.Js) написать игровой сайт, где зарегистрированные пользователи играли бы друг с другом в режиме реального времени в настольные игры (пока только шашки). Гости могут только просматривать текущие игры. Также нужна возможность чата между игроками, статистика, таблица лидеров, турниры (круговые и швейцарка).',
         price: 30000,
@@ -29,6 +59,7 @@ export class TaskService {
         responsesCount: 12
       },
       {
+        id: 3,
         title: 'Требуется копирайтер',
         description: 'Ищем копирайтеров и людей, которые любят работать с текстом\n' +
           'Работа удаленная и заключается в печати текста со сканов\n' +
