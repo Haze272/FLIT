@@ -7,10 +7,16 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Output() public sidenavToggle = new EventEmitter();
+  @Output() public onAuthClicked = new EventEmitter();
 
-  public onToggleSidenav = () => {
+  public onToggleSidenav() {
     this.sidenavToggle.emit();
   }
+
+  public onClickAuth() {
+    this.onAuthClicked.emit();
+  }
+
   @Input() isChecked: boolean = false;
 
   constructor() { }

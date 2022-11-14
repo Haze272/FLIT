@@ -7,9 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  public isToggled: boolean = false;
+  public isSidenavToggled: boolean = false;
+  isAuthToggled: boolean = false;
 
-  toggle() {
-    this.isToggled === true ? this.isToggled = false : this.isToggled = true;
+  sidenavToggle() {
+    this.isSidenavToggled = !this.isSidenavToggled;
+  }
+
+  authToggle() {
+    this.isAuthToggled = !this.isAuthToggled;
   }
 }
