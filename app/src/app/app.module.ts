@@ -11,6 +11,7 @@ import {FormsModule} from "@angular/forms";
 import { TaskComponent } from './pages/home/components/task/task.component';
 import { TaskDetailComponent } from './pages/task-detail/task-detail.component';
 import { AuthModalComponent } from './shared/components/auth-modal/auth-modal.component';
+import { CheckboxComponent } from './shared/components/checkbox/checkbox.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AuthModalComponent } from './shared/components/auth-modal/auth-modal.co
     TaskComponent,
     TaskDetailComponent,
     AuthModalComponent,
+    CheckboxComponent,
   ],
     imports: [
         BrowserModule,

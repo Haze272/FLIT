@@ -15,9 +15,8 @@
     <div class="option">
       <p>Сфера деятельности:</p>
       <div class="checkbox-container">
-        <div class="task-type" *ngFor="let taskType of taskTypes">
-          <input type="checkbox">
-          <span>{{ taskType.name }}</span>
+        <div class="task-type" *ngFor="let taskType of taskTypes;let indexOfelement=index;">
+          <app-checkbox [uniqueId]="'generatedOption'+indexOfelement" [text]="taskType.name"></app-checkbox>
         </div>
       </div>
     </div>
@@ -25,12 +24,10 @@
       <p>Дополнительно:</p>
       <div class="checkbox-container">
         <div class="additional-option">
-          <input type="checkbox">
-          <span>С отзывами</span>
+          <app-checkbox uniqueId="options1" text="С отзывами"></app-checkbox>
         </div>
         <div class="additional-option">
-          <input type="checkbox">
-          <span>С указанной стоимостью</span>
+          <app-checkbox uniqueId="options2" text="С указанной стоимостью"></app-checkbox>
         </div>
       </div>
     </div>
