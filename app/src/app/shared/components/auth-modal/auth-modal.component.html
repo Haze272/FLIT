@@ -1,4 +1,4 @@
-<div class="modal-background" (click)="onCloseClick()"></div>
+<div class="modal-background" (click)="closeModal()"></div>
 
 <div class="auth-wrapper">
   <div class="decorative-bg">
@@ -12,10 +12,10 @@
           <h3>Начните зарабатывать на своих умениях или найдите специалиста!</h3>
         </div>
 
-        <input type="text" placeholder="Логин/email">
+        <input type="text" placeholder="Логин/email" #loginLogin>
 
         <div class="password-wrapper">
-          <input type="password" placeholder="Пароль">
+          <input type="password" placeholder="Пароль" #loginPassword>
           <a (click)="modalForgotPassword()">Забыли пароль?</a>
         </div>
 
@@ -24,7 +24,7 @@
         </div>
 
         <div class="button-wrapper">
-          <a class="submit" href="#">Войти</a>
+          <a class="submit" (click)="login(loginLogin.value, loginPassword.value)">Войти</a>
           <p>Нет учётной записи? <a (click)="modalSignIn()">Зарегестрируйтесь</a></p>
         </div>
       </div>

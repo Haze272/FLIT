@@ -1,9 +1,11 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {AuthService} from "../../../services/auth.service";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  providers: [AuthService]
 })
 export class HeaderComponent implements OnInit {
   @Output() public sidenavToggle = new EventEmitter();
@@ -19,7 +21,7 @@ export class HeaderComponent implements OnInit {
 
   @Input() isChecked: boolean = false;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }

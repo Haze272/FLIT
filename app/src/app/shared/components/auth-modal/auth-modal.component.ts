@@ -1,20 +1,22 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-auth-modal',
   templateUrl: './auth-modal.component.html',
-  styleUrls: ['./auth-modal.component.scss']
+  styleUrls: ['./auth-modal.component.scss'],
+  providers: [AuthService]
 })
 export class AuthModalComponent implements OnInit {
   @Output() onCloseAuth = new EventEmitter;
   modalType: ModalType = ModalType.logIn;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
-  onCloseClick() {
+  closeModal() {
     this.onCloseAuth.emit();
   }
 
@@ -28,6 +30,13 @@ export class AuthModalComponent implements OnInit {
 
   modalForgotPassword() {
     this.modalType = ModalType.forgotPassword;
+  }
+
+  login(login: string, password: string) {
+    let isSuccesed = this.authService.login(login, password);
+    if (isSuccesed) {
+      this.closeModal();
+    }
   }
 }
 
