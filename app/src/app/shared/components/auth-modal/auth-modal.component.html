@@ -4,27 +4,69 @@
   <div class="decorative-bg">
 
   </div>
-  <div class="login-form">
-    <div class="title">
-      <p class="login">Вход</p>
-      <h3>Начните зарабатывать на своих умениях или найдите специалиста!</h3>
-    </div>
+  <div class="modal" [ngSwitch]="modalType">
+    <ng-template [ngSwitchCase]="0">
+      <div class="auth-form">
+        <div class="title">
+          <p class="form-title">Вход</p>
+          <h3>Начните зарабатывать на своих умениях или найдите специалиста!</h3>
+        </div>
 
-    <input type="text" placeholder="Логин/email">
+        <input type="text" placeholder="Логин/email">
 
-    <div class="password-wrapper">
-      <input type="password" placeholder="Пароль">
-      <a href="#">Забыли пароль?</a>
-    </div>
+        <div class="password-wrapper">
+          <input type="password" placeholder="Пароль">
+          <a (click)="modalForgotPassword()">Забыли пароль?</a>
+        </div>
 
-    <div class="remember-me">
-      <app-checkbox uniqueId="rememeber-me" text="Запомнить меня"></app-checkbox>
-    </div>
+        <div class="remember-me">
+          <app-checkbox uniqueId="rememeber-me" text="Запомнить меня"></app-checkbox>
+        </div>
 
-    <div class="button-wrapper">
-      <a class="submit" href="#">Войти</a>
-      <p>Нет учётной записи? <a href="#">Зарегестрируйтесь</a></p>
-    </div>
+        <div class="button-wrapper">
+          <a class="submit" href="#">Войти</a>
+          <p>Нет учётной записи? <a (click)="modalSignIn()">Зарегестрируйтесь</a></p>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template [ngSwitchCase]="1">
+      <div class="auth-form">
+        <div class="title">
+          <p class="form-title">Регистрация</p>
+        </div>
+
+        <input type="text" placeholder="Имя и фамилия">
+
+        <input type="text" placeholder="Электронная почта">
+
+        <input type="password" placeholder="Пароль">
+
+        <input type="password" placeholder="Пароль ещё раз">
+
+        <div class="personalData">
+          <app-checkbox uniqueId="auth-modal-personal-data" text="Я даю соглашение на обработку персональных данных"></app-checkbox>
+        </div>
+
+        <div class="button-wrapper">
+          <a class="submit">Зарегестрироваться</a>
+          <p>Уже есть учётная запись? <a (click)="modalLogIn()">Войдите</a></p>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template [ngSwitchCase]="2">
+      <div class="auth-form">
+        <div class="title">
+          <p class="form-title">Восстановление пароля</p>
+        </div>
+
+        <input type="text" placeholder="Электронная почта">
+
+        <div class="button-wrapper">
+          <a class="submit">Выслать код подтверждения</a>
+          <p>Вспомнили пароль? <a (click)="modalLogIn()">Вход</a></p>
+        </div>
+      </div>
+    </ng-template>
   </div>
 </div>
 

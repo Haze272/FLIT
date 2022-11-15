@@ -7,6 +7,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class AuthModalComponent implements OnInit {
   @Output() onCloseAuth = new EventEmitter;
+  modalType: ModalType = ModalType.logIn;
 
   constructor() { }
 
@@ -16,4 +17,22 @@ export class AuthModalComponent implements OnInit {
   onCloseClick() {
     this.onCloseAuth.emit();
   }
+
+  modalSignIn() {
+    this.modalType = ModalType.signIn;
+  }
+
+  modalLogIn() {
+    this.modalType = ModalType.logIn;
+  }
+
+  modalForgotPassword() {
+    this.modalType = ModalType.forgotPassword;
+  }
+}
+
+export enum ModalType {
+  logIn,
+  signIn,
+  forgotPassword
 }
