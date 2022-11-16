@@ -13,7 +13,8 @@ export class AuthService {
       surname: 'Doe',
       exp: 25,
       bio: 'Общий опыт работы в digital - 9 лет. Более 4х лет опыта в разработке B2B/B2C программного обеспечения: web, ios, android в продуктовых  компаниях (EdTech, mHealth). Начинал карьеру как SEO-специалист в ТОП3 digital агентстве Ingate, далее в образовательной компании, в 2018 году сменил профиль в сторону работы с продуктом и дорос до директора по продукту где развивал текущие продуктовые линейки, создавал новые образовательные продукты и растил целевые показатели путем улучшения пользовательского опыта. ',
-      rank: 1
+      rank: 1,
+      avatarUrl: 'https://i.ibb.co/V2pW4TC/avatar.png'
     },
     {
       id: 2,
@@ -24,7 +25,8 @@ export class AuthService {
       surname: 'Morisson',
       exp: 37,
       bio: '',
-      rank: 1
+      rank: 1,
+      avatarUrl: 'https://i.ibb.co/V2pW4TC/avatar.png'
     },
     {
       id: 3,
@@ -35,7 +37,8 @@ export class AuthService {
       surname: 'Ryan',
       exp: 11,
       bio: '',
-      rank: 1
+      rank: 1,
+      avatarUrl: 'https://i.ibb.co/V2pW4TC/avatar.png'
     },
     {
       id: 4,
@@ -46,7 +49,8 @@ export class AuthService {
       surname: 'Romer',
       exp: 56,
       bio: '',
-      rank: 1
+      rank: 1,
+      avatarUrl: 'https://i.ibb.co/V2pW4TC/avatar.png'
     }
   ];
 

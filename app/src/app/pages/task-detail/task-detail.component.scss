@@ -1,0 +1,43 @@
+.task-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .figure-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .price {
+    color: var(--pink);
+    font-weight: 500;
+  }
+
+  .description {
+
+  }
+}
+
+.task-author-info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .avatar {
+    img {
+      border-radius: 50%;
+    }
+  }
+
+  .name {
+    font-size: 30px;
+
+  }
+}

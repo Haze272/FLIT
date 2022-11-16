@@ -1,3 +1,25 @@
 <section>
-  <h1>{{ task.title }}</h1>
+  <main class="main-info">
+    <div class="task-info">
+      <h1>{{ task.title }}</h1>
+      <div class="figure-info">
+        <p class="price">{{ task.price }} руб.</p>
+        <p>{{ task.date }} | {{ task.responsesCount }} откликов | {{ task.taskType.name }}</p>
+        <app-tag-container [tags]="task.tags"></app-tag-container>
+      </div>
+      <p class="description">{{ task.description }}</p>
+    </div>
+
+  </main>
+  <div class="side-info">
+    <div class="task-author-info">
+      <div class="avatar">
+        <img [src]="taskAuthor.avatarUrl" alt="">
+      </div>
+
+      <div class="name">
+        <h3>{{ taskAuthor.name }} {{ taskAuthor.surname }}</h3>
+      </div>
+    </div>
+  </div>
 </section>

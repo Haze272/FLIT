@@ -24,23 +24,6 @@
   .title {
     font-size: 24px;
   }
-
-  .tags-container {
-    display: flex;
-    gap: 5px;
-
-    .tag {
-      border: 1px solid #b9b9b9;
-      border-radius: 10px;
-      padding: 3px 5px;
-      font-size: 12px;
-
-      &:hover {
-        background-color: #676767;
-        color: white;
-      }
-    }
-  }
 }
 
 .price {

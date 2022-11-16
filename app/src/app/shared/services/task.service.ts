@@ -1,5 +1,6 @@
 import {ITask} from "../models/task.interface";
 import {ITaskType} from "../models/task-type.interface";
+import {IUser} from "../models/user.interface";
 
 export class TaskService {
   unknownTask: ITask = {
@@ -13,7 +14,8 @@ export class TaskService {
       description: 'N/A'
     },
     date: 'N/A',
-    responsesCount: 0
+    responsesCount: 0,
+    customerId: 0
   }
 
   getProductById(id: number) {
@@ -30,6 +32,16 @@ export class TaskService {
     }
   }
 
+  getMockUserById(id: number) {
+    let users = this.getMockUsers();
+
+    let foundTask =  users.find((el) => {
+      return el.id === id
+    })
+
+    return foundTask
+  }
+
   getMockTasks() {
     let products: ITask[] = [
       {
@@ -43,7 +55,8 @@ export class TaskService {
           description: ''
         },
         date: '12 ноября 2022, 11:27',
-        responsesCount: 4
+        responsesCount: 4,
+        customerId: 7
       },
       {
         id: 2,
@@ -56,7 +69,8 @@ export class TaskService {
           description: ''
         },
         date: '12 ноября 2022, 11:06',
-        responsesCount: 12
+        responsesCount: 12,
+        customerId: 7
       },
       {
         id: 3,
@@ -71,7 +85,8 @@ export class TaskService {
           description: ''
         },
         date: '12 ноября 2022, 10:25',
-        responsesCount: 11
+        responsesCount: 11,
+        customerId: 7
       },
     ];
     return products;
@@ -109,5 +124,60 @@ export class TaskService {
       }
     ];
     return taskTypes;
+  }
+
+  getMockUsers() {
+    let users: IUser[] = [
+      {
+        id: 1,
+        login: 'johnd',
+        email: 'john@gmail.com',
+        password: 'm38rmF$',
+        name: 'John',
+        surname: 'Doe',
+        exp: 25,
+        bio: 'Общий опыт работы в digital - 9 лет. Более 4х лет опыта в разработке B2B/B2C программного обеспечения: web, ios, android в продуктовых  компаниях (EdTech, mHealth). Начинал карьеру как SEO-специалист в ТОП3 digital агентстве Ingate, далее в образовательной компании, в 2018 году сменил профиль в сторону работы с продуктом и дорос до директора по продукту где развивал текущие продуктовые линейки, создавал новые образовательные продукты и растил целевые показатели путем улучшения пользовательского опыта. ',
+        rank: 1,
+        avatarUrl: 'https://i.ibb.co/V2pW4TC/avatar.png'
+      },
+      {
+        id: 2,
+        login: 'mor_2314',
+        email: 'morrison@gmail.com',
+        password: '83r5^_',
+        name: 'David',
+        surname: 'Morisson',
+        exp: 37,
+        bio: '',
+        rank: 1,
+        avatarUrl: 'https://i.ibb.co/V2pW4TC/avatar.png'
+      },
+      {
+        id: 3,
+        login: 'kevinryan',
+        email: 'kevin@gmail.com',
+        password: 'kev02937@',
+        name: 'Kevin',
+        surname: 'Ryan',
+        exp: 11,
+        bio: '',
+        rank: 1,
+        avatarUrl: 'https://i.ibb.co/V2pW4TC/avatar.png'
+      },
+      {
+        id: 4,
+        login: 'donero',
+        email: 'don@gmail.com',
+        password: 'ewedon',
+        name: 'Don',
+        surname: 'Romer',
+        exp: 56,
+        bio: '',
+        rank: 1,
+        avatarUrl: 'https://i.ibb.co/V2pW4TC/avatar.png'
+      }
+    ];
+
+    return users;
   }
 }

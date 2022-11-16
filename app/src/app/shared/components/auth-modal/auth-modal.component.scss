@@ -48,7 +48,7 @@
   gap: 20px;
 
   a:not([class]) {
-    color: #f31865;
+    color: var(--pink);
     font-size: 14px;
     text-decoration: underline solid;
   }
@@ -76,7 +76,7 @@
     gap: 15px;
 
     a.submit {
-      background-color: #f31865;
+      background-color: var(--pink);
       padding: 10px 20px;
       color: white;
       border-radius: 3px;

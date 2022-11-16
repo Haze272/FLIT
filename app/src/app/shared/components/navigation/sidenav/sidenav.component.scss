@@ -7,7 +7,7 @@
 }
 
 .sidenav {
-  background-color: #222324;
+  background-color: var(--header-bg-color);
   width: 200px;
   height: inherit;
   display: flex;
@@ -28,7 +28,7 @@ a:hover, a:active{
 }
 
 a.activeLink{
-  color: #DE2C6C;
+  color: var(--pink);
 }
 
 .nav-caption{

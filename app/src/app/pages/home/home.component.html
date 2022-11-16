@@ -1,5 +1,5 @@
 <section>
-  <main>
+  <main class="main-info">
     <h1>Заказы</h1>
     <input type="text" placeholder="Поиск заказов">
     <div class="sort-container">
@@ -11,7 +11,7 @@
       <app-task *ngFor="let task of tasks" [task]="task"></app-task>
     </div>
   </main>
-  <div class="category-sorting">
+  <div class="category-sorting side-info">
     <div class="option">
       <p>Сфера деятельности:</p>
       <div class="checkbox-container">

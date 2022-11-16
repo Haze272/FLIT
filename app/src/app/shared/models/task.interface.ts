@@ -1,4 +1,4 @@
-import {ITaskType} from "./task-type.interface";
+import { ITaskType } from "./task-type.interface";
 
 export interface ITask {
   id: number;
@@ -8,5 +8,7 @@ export interface ITask {
   tags: string[],
   taskType: ITaskType,
   date: string,
-  responsesCount: number
+  responsesCount: number,
+  customerId: number,
+  performerId?: number;
 }
