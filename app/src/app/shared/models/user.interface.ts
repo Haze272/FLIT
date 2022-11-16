@@ -8,5 +8,6 @@ export interface IUser {
   exp: number,
   bio: string,
   rank: number,
-  avatarUrl: string
+  avatarUrl: string,
+  dateOfBirth: Date
 }

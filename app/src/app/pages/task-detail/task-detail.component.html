@@ -18,7 +18,16 @@
       </div>
 
       <div class="name">
-        <h3>{{ taskAuthor.name }} {{ taskAuthor.surname }}</h3>
+        <h3>{{ taskAuthor.login }}</h3>
+        <p class="age">{{ taskAuthor.name }} {{ taskAuthor.surname }}, {{ getAge() }} {{ ageText(getAge()) }}</p>
+      </div>
+
+      <div class="rank">
+        <p>{{ taskAuthor.rank }}</p>
+      </div>
+
+      <div class="progress">
+        <progress max="100" [value]="taskAuthor.exp"></progress>
       </div>
     </div>
   </div>

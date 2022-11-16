@@ -35,7 +35,7 @@ export class TaskService {
   getMockUserById(id: number) {
     let users = this.getMockUsers();
 
-    let foundTask =  users.find((el) => {
+    let foundTask = users.find((el) => {
       return el.id === id
     })
 
@@ -138,7 +138,8 @@ export class TaskService {
         exp: 25,
         bio: 'Общий опыт работы в digital - 9 лет. Более 4х лет опыта в разработке B2B/B2C программного обеспечения: web, ios, android в продуктовых  компаниях (EdTech, mHealth). Начинал карьеру как SEO-специалист в ТОП3 digital агентстве Ingate, далее в образовательной компании, в 2018 году сменил профиль в сторону работы с продуктом и дорос до директора по продукту где развивал текущие продуктовые линейки, создавал новые образовательные продукты и растил целевые показатели путем улучшения пользовательского опыта. ',
         rank: 1,
-        avatarUrl: 'https://i.ibb.co/V2pW4TC/avatar.png'
+        avatarUrl: 'https://i.ibb.co/V2pW4TC/avatar.png',
+        dateOfBirth: new Date('2001-02-01')
       },
       {
         id: 2,
@@ -150,7 +151,8 @@ export class TaskService {
         exp: 37,
         bio: '',
         rank: 1,
-        avatarUrl: 'https://i.ibb.co/V2pW4TC/avatar.png'
+        avatarUrl: 'https://i.ibb.co/V2pW4TC/avatar.png',
+        dateOfBirth: new Date('2001-02-01')
       },
       {
         id: 3,
@@ -162,7 +164,8 @@ export class TaskService {
         exp: 11,
         bio: '',
         rank: 1,
-        avatarUrl: 'https://i.ibb.co/V2pW4TC/avatar.png'
+        avatarUrl: 'https://i.ibb.co/V2pW4TC/avatar.png',
+        dateOfBirth: new Date('2001-02-01')
       },
       {
         id: 4,
@@ -174,7 +177,8 @@ export class TaskService {
         exp: 56,
         bio: '',
         rank: 1,
-        avatarUrl: 'https://i.ibb.co/V2pW4TC/avatar.png'
+        avatarUrl: 'https://i.ibb.co/V2pW4TC/avatar.png',
+        dateOfBirth: new Date('2001-02-01')
       }
     ];
 
