@@ -13,6 +13,7 @@ import { TaskDetailComponent } from './pages/task-detail/task-detail.component';
 import { AuthModalComponent } from './shared/components/auth-modal/auth-modal.component';
 import { CheckboxComponent } from './shared/components/checkbox/checkbox.component';
 import { TagContainerComponent } from './shared/components/tag-container/tag-container.component';
+import {AuthService} from "./shared/services/auth.service";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { TagContainerComponent } from './shared/components/tag-container/tag-con
         BrowserAnimationsModule,
         FormsModule,
     ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

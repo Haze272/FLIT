@@ -22,12 +22,12 @@
         <p class="age">{{ taskAuthor.name }} {{ taskAuthor.surname }}, {{ getAge() }} {{ ageText(getAge()) }}</p>
       </div>
 
-      <div class="rank">
-        <p>{{ taskAuthor.rank }}</p>
-      </div>
-
-      <div class="progress">
-        <progress max="100" [value]="taskAuthor.exp"></progress>
+      <div class="expProgress">
+        <div class="progress-info">
+          <span class="rank">{{ taskAuthorRank.name }}</span>
+          <span class="values">{{ taskAuthor.exp }} / {{ nextRankExp }}</span>
+        </div>
+        <progress [max]="nextRankExp" [value]="taskAuthor.exp"></progress>
       </div>
     </div>
   </div>

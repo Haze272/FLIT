@@ -10,21 +10,26 @@ import {IRank} from "../../shared/models/rank.interface";
   selector: 'app-task-detail',
   templateUrl: './task-detail.component.html',
   styleUrls: ['./task-detail.component.scss'],
-  providers: [TaskService]
+  providers: [TaskService, RankService]
 })
 export class TaskDetailComponent implements OnInit {
   task!: ITask;
   taskAuthor!: IUser;
   taskAuthorRank!: IRank;
+  nextRankExp!: number;
+
   constructor(
     private route: ActivatedRoute,
-    private taskService: TaskService
+    private taskService: TaskService,
+    private rankService: RankService
   ) { }
 
   ngOnInit(): void {
     let prodId: number = parseInt(this.route.snapshot.params['taskId']);
     this.task = this.taskService.getProductById(prodId);
     this.taskAuthor = this.taskService.getMockUserById(this.task.id) as IUser;
+    this.taskAuthorRank = this.rankService.getMockCustomerRankById(this.taskAuthor.rank);
+    this.nextRankExp = this.rankService.getNextRankExp(this.taskAuthor.rank);
   }
 
   getAge(): number {

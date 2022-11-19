@@ -1,21 +1,14 @@
 import {ITask} from "../models/task.interface";
 import {ITaskType} from "../models/task-type.interface";
 import {IUser} from "../models/user.interface";
+import {Injectable} from "@angular/core";
+import {AuthService} from "./auth.service";
 
+@Injectable()
 export class TaskService {
-  unknownTask: ITask = {
-    id: 0,
-    title: 'N/A',
-    description: 'Task does not exist!',
-    price: 0,
-    tags: [],
-    taskType: {
-      name: 'N/A',
-      description: 'N/A'
-    },
-    date: 'N/A',
-    responsesCount: 0,
-    customerId: 0
+  // TODO встроить сервис с пользователями и поменять аватарки
+
+  constructor(private authService: AuthService) {
   }
 
   getProductById(id: number) {
@@ -28,7 +21,21 @@ export class TaskService {
     if (foundTask) {
       return foundTask;
     } else {
-      return this.unknownTask;
+      let unknownTask: ITask = {
+        id: 0,
+        title: 'N/A',
+        description: 'Task does not exist!',
+        price: 0,
+        tags: [],
+        taskType: {
+          name: 'N/A',
+          description: 'N/A'
+        },
+        date: 'N/A',
+        responsesCount: 0,
+        customerId: 0
+      };
+      return unknownTask;
     }
   }
 
@@ -127,60 +134,7 @@ export class TaskService {
   }
 
   getMockUsers() {
-    let users: IUser[] = [
-      {
-        id: 1,
-        login: 'johnd',
-        email: 'john@gmail.com',
-        password: 'm38rmF$',
-        name: 'John',
-        surname: 'Doe',
-        exp: 25,
-        bio: 'Общий опыт работы в digital - 9 лет. Более 4х лет опыта в разработке B2B/B2C программного обеспечения: web, ios, android в продуктовых  компаниях (EdTech, mHealth). Начинал карьеру как SEO-специалист в ТОП3 digital агентстве Ingate, далее в образовательной компании, в 2018 году сменил профиль в сторону работы с продуктом и дорос до директора по продукту где развивал текущие продуктовые линейки, создавал новые образовательные продукты и растил целевые показатели путем улучшения пользовательского опыта. ',
-        rank: 1,
-        avatarUrl: 'https://i.ibb.co/V2pW4TC/avatar.png',
-        dateOfBirth: new Date('2001-02-01')
-      },
-      {
-        id: 2,
-        login: 'mor_2314',
-        email: 'morrison@gmail.com',
-        password: '83r5^_',
-        name: 'David',
-        surname: 'Morisson',
-        exp: 37,
-        bio: '',
-        rank: 1,
-        avatarUrl: 'https://i.ibb.co/V2pW4TC/avatar.png',
-        dateOfBirth: new Date('2001-02-01')
-      },
-      {
-        id: 3,
-        login: 'kevinryan',
-        email: 'kevin@gmail.com',
-        password: 'kev02937@',
-        name: 'Kevin',
-        surname: 'Ryan',
-        exp: 11,
-        bio: '',
-        rank: 1,
-        avatarUrl: 'https://i.ibb.co/V2pW4TC/avatar.png',
-        dateOfBirth: new Date('2001-02-01')
-      },
-      {
-        id: 4,
-        login: 'donero',
-        email: 'don@gmail.com',
-        password: 'ewedon',
-        name: 'Don',
-        surname: 'Romer',
-        exp: 56,
-        bio: '',
-        rank: 1,
-        avatarUrl: 'https://i.ibb.co/V2pW4TC/avatar.png',
-        dateOfBirth: new Date('2001-02-01')
-      }
-    ];
+    let users: IUser[] = this.authService.getUsers();
 
     return users;
   }

@@ -3,7 +3,7 @@ import {IUser} from "../models/user.interface";
 
 @Injectable()
 export class AuthService {
-  public users: IUser[] = [
+  private users: IUser[] = [
     {
       id: 1,
       login: 'johnd',
@@ -24,10 +24,10 @@ export class AuthService {
       password: '83r5^_',
       name: 'David',
       surname: 'Morisson',
-      exp: 37,
+      exp: 132,
       bio: '',
-      rank: 1,
-      avatarUrl: 'https://i.ibb.co/V2pW4TC/avatar.png',
+      rank: 2,
+      avatarUrl: 'https://i.ibb.co/W3G69Gc/image-part-017.png',
       dateOfBirth: new Date('2001-02-01')
     },
     {
@@ -37,10 +37,10 @@ export class AuthService {
       password: 'kev02937@',
       name: 'Kevin',
       surname: 'Ryan',
-      exp: 11,
+      exp: 466,
       bio: '',
-      rank: 1,
-      avatarUrl: 'https://i.ibb.co/V2pW4TC/avatar.png',
+      rank: 3,
+      avatarUrl: 'https://i.ibb.co/XtHBdPf/image-part-009.png',
       dateOfBirth: new Date('2001-02-01')
     },
     {
@@ -50,10 +50,10 @@ export class AuthService {
       password: 'ewedon',
       name: 'Don',
       surname: 'Romer',
-      exp: 56,
+      exp: 1337,
       bio: '',
-      rank: 1,
-      avatarUrl: 'https://i.ibb.co/V2pW4TC/avatar.png',
+      rank: 4,
+      avatarUrl: 'https://i.ibb.co/KN1f5c7/image-part-007.png',
       dateOfBirth: new Date('2001-02-01')
     }
   ];
@@ -70,5 +70,9 @@ export class AuthService {
     }
     console.log('Пользователь не был авторизован');
     return false;
+  }
+
+  getUsers() {
+    return this.users;
   }
 }
