@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {IUser} from "../models/user.interface";
+import {BehaviorSubject, Subject} from "rxjs";
 
 @Injectable()
 export class AuthService {
@@ -58,13 +59,30 @@ export class AuthService {
     }
   ];
 
-  currentUser!: IUser;
+  currentUser$: BehaviorSubject<IUser> = new BehaviorSubject<IUser>({
+    id: 0,
+    login: 'N/A',
+    email: 'N/A',
+    password: 'N/A',
+    name: 'N/A',
+    surname: 'N/A',
+    exp: 0,
+    bio: '',
+    rank: 0,
+    avatarUrl: 'N/A',
+    dateOfBirth: new Date()
+  });
+
+  constructor() {
+  }
 
   login(login: string, password: string): boolean {
     for (let user of this.users) {
       if ((user.email === login || user.login === login) && (user.password === password)) {
-        this.currentUser = user;
+        console.log('ЕБАЛ ВАС В РОТ АНТИХАЙП')
+        this.currentUser$.next(user);
         console.log('Пользователь ' + user.login + ' был авторизован');
+        console.log(this.currentUser$.value)
         return true
       }
     }

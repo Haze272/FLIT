@@ -1,5 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AuthService} from "../../../services/auth.service";
+import {IUser} from "../../../models/user.interface";
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'app-header',
@@ -10,6 +12,13 @@ import {AuthService} from "../../../services/auth.service";
 export class HeaderComponent implements OnInit {
   @Output() public sidenavToggle = new EventEmitter();
   @Output() public onAuthClicked = new EventEmitter();
+  @Input() isChecked: boolean = false;
+  user$ = this.authService.currentUser$;
+  user!: IUser;
+
+  constructor(public authService: AuthService) {
+    this.authService.currentUser$.subscribe({next:(data: IUser) => this.user = data});
+  }
 
   public onToggleSidenav() {
     this.sidenavToggle.emit();
@@ -19,10 +28,7 @@ export class HeaderComponent implements OnInit {
     this.onAuthClicked.emit();
   }
 
-  @Input() isChecked: boolean = false;
-
-  constructor(private authService: AuthService) { }
-
   ngOnInit(): void {
   }
 }
+

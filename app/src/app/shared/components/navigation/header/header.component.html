@@ -22,11 +22,22 @@
       </li>
     </ul>
   </div>
-  <div class="loginSection">
-    <a class="loginButton" (click)="onClickAuth()">
-      Войти
-    </a>
+  <div *ngIf="user$ | async as data">
+    <div *ngIf="user.id === 0; then login; else account">
+
+    </div>
   </div>
+  <div class="loginSection">
+    <ng-template #login>
+      <a class="loginButton" (click)="onClickAuth()">
+        Войти
+      </a>
+    </ng-template>
+    <ng-template #account>
+      <a class="account">{{ user$.value.login | json }}</a>
+    </ng-template>
+  </div>
+
   <div class="menuButton">
     <a>
       <input type="checkbox" [(ngModel)]="isChecked" (change)="onToggleSidenav()" id="toggle-menu"/>
