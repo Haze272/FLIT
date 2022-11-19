@@ -33,7 +33,7 @@ import {AuthService} from "./shared/services/auth.service";
         BrowserAnimationsModule,
         FormsModule,
     ],
-  providers: [AuthService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

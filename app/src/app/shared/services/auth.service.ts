@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import {IUser} from "../models/user.interface";
-import {BehaviorSubject, Subject} from "rxjs";
+import {BehaviorSubject, Observable, Subject} from "rxjs";
+import {UserService} from "./user.service";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService {
   private users: IUser[] = [
     {
@@ -56,33 +59,40 @@ export class AuthService {
       rank: 4,
       avatarUrl: 'https://i.ibb.co/KN1f5c7/image-part-007.png',
       dateOfBirth: new Date('2001-02-01')
+    },
+    {
+      id: 5,
+      login: '1',
+      email: 'don@gmail.com',
+      password: '1',
+      name: 'Don',
+      surname: 'Romer',
+      exp: 1337,
+      bio: '',
+      rank: 4,
+      avatarUrl: 'https://i.ibb.co/KN1f5c7/image-part-007.png',
+      dateOfBirth: new Date('2001-02-01')
     }
   ];
 
-  currentUser$: BehaviorSubject<IUser> = new BehaviorSubject<IUser>({
-    id: 0,
-    login: 'N/A',
-    email: 'N/A',
-    password: 'N/A',
-    name: 'N/A',
-    surname: 'N/A',
-    exp: 0,
-    bio: '',
-    rank: 0,
-    avatarUrl: 'N/A',
-    dateOfBirth: new Date()
-  });
+  public isLogged: any = new BehaviorSubject(false);
+  public isLogged$: Observable<boolean> = this.isLogged.asObservable();
 
-  constructor() {
+  constructor(private userService: UserService) {
   }
 
   login(login: string, password: string): boolean {
     for (let user of this.users) {
       if ((user.email === login || user.login === login) && (user.password === password)) {
-        console.log('ЕБАЛ ВАС В РОТ АНТИХАЙП')
-        this.currentUser$.next(user);
+        this.userService.setUser(user);
         console.log('Пользователь ' + user.login + ' был авторизован');
-        console.log(this.currentUser$.value)
+
+        this.isLogged.next(true);
+        setTimeout(() => {
+          this.isLogged.next(false);
+          console.log('sss')
+        }, 5000)
+
         return true
       }
     }
