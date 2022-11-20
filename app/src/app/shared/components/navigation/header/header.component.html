@@ -26,7 +26,7 @@
     <a class="loginButton" (click)="onClickAuth()" *ngIf="!isLogged;">
       Войти
     </a>
-    <div *ngIf="isLogged">DDDDD</div>
+    <div class="userLogin" *ngIf="isLogged">{{ currentUser.login }}</div>
   </div>
 
 

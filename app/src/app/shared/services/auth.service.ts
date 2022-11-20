@@ -88,10 +88,6 @@ export class AuthService {
         console.log('Пользователь ' + user.login + ' был авторизован');
 
         this.isLogged.next(true);
-        setTimeout(() => {
-          this.isLogged.next(false);
-          console.log('sss')
-        }, 5000)
 
         return true
       }
