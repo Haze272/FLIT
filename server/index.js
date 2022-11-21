@@ -7,14 +7,14 @@ const mysql = require('mysql2');
 app.set("view engine", "hbs");
 hbs.registerPartials(__dirname + "/views/partials");
 
-app.get("/", function(req, res){
+app.get("/", (req, res) => {
     res.render("home.hbs");
 });
 
-app.get("/create", function(req, res){
+app.get("/create", (req, res) => {
     res.render("create.hbs");
 });
 
-app.listen(3000, function(){
+app.listen(3000, () => {
     console.log("Сервер ожидает подключения...");
 });

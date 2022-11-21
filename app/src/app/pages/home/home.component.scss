@@ -4,6 +4,11 @@
   flex-direction: column;
   gap: 20px;
   padding: 20px 0 0 0;
+
+  & > app-task:not(:last-child) {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #d7d4d4;
+  }
 }
 
 .sort-container {
@@ -12,6 +17,8 @@
 }
 
 .category-sorting {
+  height: 100%;
+
   .option {
     p {
       font-size: 18px;

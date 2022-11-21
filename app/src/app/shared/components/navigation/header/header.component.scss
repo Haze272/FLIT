@@ -88,6 +88,10 @@ header {
 
   & .userLogin {
     color: white;
+
+    &:hover {
+      color: var(--pink);
+    }
   }
 }
 

@@ -5,8 +5,15 @@
     <span class="date">{{ task.date }}</span>
     <app-tag-container [tags]="task.tags"></app-tag-container>
   </div>
-  <div class="price">
-    <img src="/assets/img/cash.svg" alt="">
-    <span>{{ task.price }} руб.</span>
+  <div class="additional">
+    <div class="price">
+      <img src="/assets/img/cash.svg" alt="">
+      <span>{{ task.price }} руб.</span>
+    </div>
+    <div class="add-to-favorite">
+      <a class="add-to-favorite">
+        <img src="/assets/img/favorite.svg" alt="">
+      </a>
+    </div>
   </div>
 </div>
