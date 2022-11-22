@@ -1,0 +1,41 @@
+<header>
+    <div class="logoWrapper">
+        <div class="imgLogoWrapper">
+            <a routerLink="/" class="imgLogoLink">
+                <img src="/assets/img/logo.svg" alt="">
+            </a>
+        </div>
+        <div class="logoText">
+            <a class="logoText" routerLink="/">FLIT</a>
+        </div>
+    </div>
+    <div class="nav-wrapper">
+        <ul class="navigation-items">
+            <li>
+                <a routerLink="/" routerLinkActive="activeLink">Заказы</a>
+            </li>
+            <li>
+                <a routerLink="/rules" routerLinkActive="activeLink">Отклики</a>
+            </li>
+            <li>
+                <a routerLink="/server-list" routerLinkActive="activeLink">Специалисты</a>
+            </li>
+        </ul>
+    </div>
+    <div class="loginSection" >
+        <a class="loginButton" (click)="onClickAuth()" *ngIf="!isLogged;">
+            Войти
+        </a>
+        <div class="userLogin" *ngIf="isLogged">{{ currentUser.login }}</div>
+    </div>
+
+
+    <div class="menuButton">
+        <a>
+            <input type="checkbox" [(ngModel)]="isChecked" (change)="onToggleSidenav()" id="toggle-menu"/>
+            <label for="toggle-menu">
+                <span class="menu-icon"></span>
+            </label>
+        </a>
+    </div>
+</header>
