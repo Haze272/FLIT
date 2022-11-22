@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ITask} from "../../../../shared/models/task.interface";
 
 @Component({
@@ -8,10 +8,20 @@ import {ITask} from "../../../../shared/models/task.interface";
 })
 export class TaskComponent implements OnInit {
   @Input() task!: ITask;
+  @Output() onAddedToFavorite: EventEmitter<ITask> = new EventEmitter<ITask>();
+  addedToFavorite: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  toggleFavorite() {
+    this.addedToFavorite ? this.addToFavorite() : 0;
+    this.addedToFavorite = !this.addedToFavorite;
+  }
+
+  addToFavorite() {
+    this.onAddedToFavorite.emit();
+  }
 }

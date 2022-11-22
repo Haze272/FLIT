@@ -10,9 +10,22 @@
       <img src="/assets/img/cash.svg" alt="">
       <span>{{ task.price }} руб.</span>
     </div>
-    <div class="add-to-favorite">
+    <div>
       <a class="add-to-favorite">
-        <img src="/assets/img/favorite.svg" alt="">
+        <img
+          class="favorite"
+          *ngIf="!addedToFavorite"
+          (click)="toggleFavorite()"
+          src="/assets/img/favorite.svg"
+          alt=""
+        >
+        <img
+          class="favorited"
+          *ngIf="addedToFavorite"
+          (click)="toggleFavorite()"
+          src="/assets/img/favorited.svg"
+          alt=""
+        >
       </a>
     </div>
   </div>
