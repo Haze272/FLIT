@@ -6,10 +6,9 @@ import {AuthService} from "./auth.service";
 
 @Injectable()
 export class TaskService {
-  // TODO встроить сервис с пользователями и поменять аватарки
-
-  constructor(private authService: AuthService) {
-  }
+  constructor(
+    private authService: AuthService
+  ) {}
 
   getProductById(id: number) {
     let tasks = this.getMockTasks();

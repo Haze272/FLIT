@@ -13,6 +13,7 @@ import { TaskDetailComponent } from './pages/task-detail/task-detail.component';
 import { AuthModalComponent } from './shared/components/auth-modal/auth-modal.component';
 import { CheckboxComponent } from './shared/components/checkbox/checkbox.component';
 import { TagContainerComponent } from './shared/components/tag-container/tag-container.component';
+import { ToastComponent } from './shared/components/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { TagContainerComponent } from './shared/components/tag-container/tag-con
     AuthModalComponent,
     CheckboxComponent,
     TagContainerComponent,
+    ToastComponent,
   ],
     imports: [
         BrowserModule,
