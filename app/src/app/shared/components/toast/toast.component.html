@@ -1,10 +1,13 @@
 <div class="toast-wrapper">
-  <div
-    *ngFor="let toast of toasts"
-  >
-    <div class="header">{{ toast.type }}</div>
-    <div class="content">
-      <span>{{ toast.message }}</span>
+  <section>
+    <div
+      *ngFor="let toast of toasts"
+    >
+      <div class="header">{{ toast.type }}</div>
+      <div class="content">
+        <span>{{ toast.message }}</span>
+      </div>
     </div>
-  </div>
+  </section>
+
 </div>

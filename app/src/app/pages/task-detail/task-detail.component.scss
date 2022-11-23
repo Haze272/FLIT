@@ -16,6 +16,17 @@
   .description {
 
   }
+
+  .respondWrapper {
+    display: flex;
+    justify-content: center;
+
+    a {
+      padding: 10px 20px;
+      background-color: var(--pink);
+      color: white;
+    }
+  }
 }
 
 .task-author-info {

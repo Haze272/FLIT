@@ -1,3 +1,20 @@
+.header-filter-wrapper {
+  display: flex;
+  align-items: center;
+
+  h1 {
+    flex: 1 1 auto;
+  }
+
+  .show-filter {
+    width: 28px;
+    display: none;
+
+    @media (max-width: 991.98px) {
+      display: block;
+    }
+  }
+}
 
 .taskWrapper {
   display: flex;
