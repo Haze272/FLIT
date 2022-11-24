@@ -1,13 +1,18 @@
 <div class="toast-wrapper">
-  <section>
     <div
+      class="toast"
+      [style.backgroundColor]="toast.type == 'success' ? 'var(--success)' : 'var(--error)'"
       *ngFor="let toast of toasts"
     >
-      <div class="header">{{ toast.type }}</div>
-      <div class="content">
-        <span>{{ toast.message }}</span>
+      <div class="icon">
+        <img src="assets/img/status/info.svg" alt="">
+      </div>
+      <div class="main">
+        <div class="header">
+          <span>{{ toast.type }}</span></div>
+        <div class="content">
+          <span>{{ toast.message }}</span>
+        </div>
       </div>
     </div>
-  </section>
-
 </div>

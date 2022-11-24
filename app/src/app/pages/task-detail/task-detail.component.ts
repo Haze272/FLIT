@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {TaskService} from "../../shared/services/task.service";
 import {ITask} from "../../shared/models/task.interface";
 import {ActivatedRoute} from "@angular/router";
 import {IUser} from "../../shared/models/user.interface";
 import {RankService} from "../../shared/services/rank.service";
 import {IRank} from "../../shared/models/rank.interface";
+import {ToastService} from "../../shared/services/toast.service";
+import {AuthService} from "../../shared/services/auth.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-task-detail',
@@ -12,16 +15,21 @@ import {IRank} from "../../shared/models/rank.interface";
   styleUrls: ['./task-detail.component.scss'],
   providers: [TaskService, RankService]
 })
-export class TaskDetailComponent implements OnInit {
+export class TaskDetailComponent implements OnInit, OnDestroy {
   task!: ITask;
   taskAuthor!: IUser;
   taskAuthorRank!: IRank;
   nextRankExp!: number;
 
+  isLogged: boolean = false;
+  loginFlagSub!: Subscription;
+
   constructor(
     private route: ActivatedRoute,
     private taskService: TaskService,
-    private rankService: RankService
+    private rankService: RankService,
+    private toastService: ToastService,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -30,6 +38,9 @@ export class TaskDetailComponent implements OnInit {
     this.taskAuthor = this.taskService.getMockUserById(this.task.id) as IUser;
     this.taskAuthorRank = this.rankService.getMockCustomerRankById(this.taskAuthor.rank);
     this.nextRankExp = this.rankService.getNextRankExp(this.taskAuthor.rank);
+    this.loginFlagSub = this.authService.isLogged$.subscribe((loginFlag) => {
+      this.isLogged = loginFlag;
+    })
   }
 
   getAge(): number {
@@ -72,5 +83,20 @@ export class TaskDetailComponent implements OnInit {
     }
 
     return txt;
+  }
+
+  respond() {
+    if (this.isLogged) {
+      // TODO
+    } else {
+      this.toastService.showToast({
+        type: "error",
+        message: "Вам необходимо авторизироваться, чтобы добавить в избранное!"
+      })
+    }
+  }
+
+  ngOnDestroy() {
+    this.loginFlagSub.unsubscribe();
   }
 }

@@ -1,4 +1,38 @@
 .toast-wrapper {
   position: fixed;
-  top: 70px;
+  top: 75px;
+  margin: 0px 5px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  .toast {
+    display: flex;
+    padding: 10px;
+
+    display: flex;
+    gap: 10px;
+
+    .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 24px;
+      }
+    }
+
+    .main {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  span {
+    color: black;
+  }
 }
+
+
