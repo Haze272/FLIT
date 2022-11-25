@@ -14,6 +14,8 @@ import { AuthModalComponent } from './shared/components/auth-modal/auth-modal.co
 import { CheckboxComponent } from './shared/components/checkbox/checkbox.component';
 import { TagContainerComponent } from './shared/components/tag-container/tag-container.component';
 import { ToastComponent } from './shared/components/toast/toast.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { ToastComponent } from './shared/components/toast/toast.component';
     CheckboxComponent,
     TagContainerComponent,
     ToastComponent,
+    ProfileComponent,
   ],
     imports: [
         BrowserModule,
@@ -34,7 +37,9 @@ import { ToastComponent } from './shared/components/toast/toast.component';
         BrowserAnimationsModule,
         FormsModule,
     ],
-  providers: [],
+  providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -26,7 +26,9 @@
     <a class="loginButton" (click)="onClickAuth()" *ngIf="!isLogged;">
       Войти
     </a>
-    <div class="userLogin" *ngIf="isLogged">{{ currentUser.login }}</div>
+    <div class="userLogin" *ngIf="isLogged">
+      <a [routerLink]="['users', currentUser.id]">{{ currentUser.login }}</a>
+    </div>
   </div>
 
 

@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {AuthService} from "../../../services/auth.service";
-import {UserService} from "../../../services/user.service";
+import {CurrentUserService} from "../../../services/current-user.service";
 import {IUser} from "../../../models/user.interface";
 import {Subscription} from "rxjs";
 
@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   constructor(
     private authService: AuthService,
-    private userService: UserService
+    private userService: CurrentUserService
   ) {}
 
 

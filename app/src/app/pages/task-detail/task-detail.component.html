@@ -20,8 +20,8 @@
       </div>
 
       <div class="name">
-        <h3>{{ taskAuthor.login }}</h3>
-        <p class="age">{{ taskAuthor.name }} {{ taskAuthor.surname }}, {{ getAge() }} {{ ageText(getAge()) }}</p>
+        <h3><a [routerLink]="['/users', taskAuthor.id]">{{ taskAuthor.login }}</a></h3>
+        <p class="age">{{ taskAuthor.name }} {{ taskAuthor.surname }}, {{ getAge() }} {{ ageText() }}</p>
       </div>
 
       <div class="expProgress">

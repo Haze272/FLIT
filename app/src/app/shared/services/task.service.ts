@@ -3,11 +3,13 @@ import {ITaskType} from "../models/task-type.interface";
 import {IUser} from "../models/user.interface";
 import {Injectable} from "@angular/core";
 import {AuthService} from "./auth.service";
+import {UserService} from "./user.service";
 
 @Injectable()
 export class TaskService {
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private userService: UserService
   ) {}
 
   getProductById(id: number) {
@@ -161,7 +163,7 @@ export class TaskService {
   }
 
   getMockUsers() {
-    let users: IUser[] = this.authService.getUsers();
+    let users: IUser[] = this.userService.getUsers();
 
     return users;
   }

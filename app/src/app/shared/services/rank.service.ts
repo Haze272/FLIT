@@ -2,7 +2,9 @@ import {Injectable} from "@angular/core";
 import {IRank} from "../models/rank.interface";
 
 // TODO: This service invoke error that I have not caught yet
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class RankService {
   getMockCustomerRankById(id: number): IRank {
     let foundRank = this.getMockCustomerRanks().find((el) => {

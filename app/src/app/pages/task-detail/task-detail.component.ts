@@ -8,12 +8,13 @@ import {IRank} from "../../shared/models/rank.interface";
 import {ToastService} from "../../shared/services/toast.service";
 import {AuthService} from "../../shared/services/auth.service";
 import {Subscription} from "rxjs";
+import {UserService} from "../../shared/services/user.service";
 
 @Component({
   selector: 'app-task-detail',
   templateUrl: './task-detail.component.html',
   styleUrls: ['./task-detail.component.scss'],
-  providers: [TaskService, RankService]
+  providers: [TaskService]
 })
 export class TaskDetailComponent implements OnInit, OnDestroy {
   task!: ITask;
@@ -29,7 +30,8 @@ export class TaskDetailComponent implements OnInit, OnDestroy {
     private taskService: TaskService,
     private rankService: RankService,
     private toastService: ToastService,
-    private authService: AuthService
+    private authService: AuthService,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
@@ -43,46 +45,12 @@ export class TaskDetailComponent implements OnInit, OnDestroy {
     })
   }
 
-  getAge(): number {
-    let today = new Date();
-    let birthDate = new Date(
-      this.taskAuthor.dateOfBirth.toISOString().slice(0, 10)
-    );
-    let age = today.getFullYear() - birthDate.getFullYear();
-
-    let m = today.getMonth() - birthDate.getMonth();
-    let d = today.getDay() - birthDate.getDay();
-
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-      age--;
-    }
-    if ( age === 0 ) {
-      m = 12 + m;
-      if (d < 0 || (d === 0 && today.getDate() < birthDate.getDate())) {
-        m--;
-      }
-    }
-
-    return age
+  getAge() {
+    return this.userService.getAge(this.taskAuthor.dateOfBirth)
   }
 
-  ageText(age: number) {
-    let txt;
-    let count = age % 100;
-    if (count >= 5 && count <= 20) {
-      txt = 'лет';
-    } else {
-      count = count % 10;
-      if (count == 1) {
-        txt = 'год';
-      } else if (count >= 2 && count <= 4) {
-        txt = 'года';
-      } else {
-        txt = 'лет';
-      }
-    }
-
-    return txt;
+  ageText() {
+    return this.userService.ageText(this.getAge());
   }
 
   respond() {
