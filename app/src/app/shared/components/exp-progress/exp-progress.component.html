@@ -1,0 +1,10 @@
+<div
+  class="expProgress"
+  [ngClass]="getRankColorClass()"
+>
+  <div class="progress-info">
+    <span class="rank">{{ currentRank.name }}</span>
+    <span class="values">{{ user.exp }} / {{ nextRankExp }}</span>
+  </div>
+  <progress [max]="nextRankExp" [value]="user.exp"></progress>
+</div>

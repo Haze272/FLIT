@@ -51,41 +51,4 @@
   .name {
     font-size: 30px;
   }
-
-  .expProgress {
-    display: flex;
-    flex-direction: column;
-
-    .progress-info {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      width: 100%;
-
-      .rank {
-        justify-self: flex-start;
-      }
-
-      .values {
-        justify-self: flex-end;
-      }
-    }
-
-    progress {
-      height: 10px;
-      width: 100%;
-      background-color: #3df600;
-      border: 0;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    progress::-webkit-progress-bar {
-      background-color: #b6b6b6;
-    }
-    progress::-webkit-progress-value {
-      background: var(--pink)
-    }
-    progress::-moz-progress-bar {
-      /* style rules */
-    }
-  }
 }

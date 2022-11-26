@@ -16,6 +16,7 @@ import { TagContainerComponent } from './shared/components/tag-container/tag-con
 import { ToastComponent } from './shared/components/toast/toast.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
+import { ExpProgressComponent } from './shared/components/exp-progress/exp-progress.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import {HashLocationStrategy, LocationStrategy} from "@angular/common";
     TagContainerComponent,
     ToastComponent,
     ProfileComponent,
+    ExpProgressComponent,
   ],
     imports: [
         BrowserModule,

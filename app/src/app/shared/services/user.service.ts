@@ -27,7 +27,7 @@ export class UserService {
       name: 'David',
       surname: 'Morisson',
       exp: 132,
-      bio: '',
+      bio: 'Я python-backend разработчик, мой основной фреймворк - Django (DRF). Имею опыт разработки сложных высоко-нагруженных систем. Качественно выполняю свою работу и всегда стараюсь сделать код максимально простым и надежным.',
       rank: 2,
       avatarUrl: 'https://i.ibb.co/W3G69Gc/image-part-017.png',
       dateOfBirth: new Date('2001-02-01')
@@ -40,7 +40,8 @@ export class UserService {
       name: 'Kevin',
       surname: 'Ryan',
       exp: 466,
-      bio: '',
+      bio: '6 лет опыта управления продуктами, создал с нуля и вывел на рынок 12 новых продуктов, масштабировал 5 существующих продуктов в США, Европе, на Ближнем Востоке, Латинской Америке, Индии, России и других рынках в области health tech, marketplaces, Mobile Apps, Digital Banking и e-commerce. 3 года опыта в бизнес-, мобильной- и веб-аналитике. 5 лет предпринимательства. Нанимал и развивал людей, управлял командами из 7-12 человек.\n' +
+        'Масштабировал прибыльный бизнес в 5 раз до $65 млн за 2 года — сервис записи к врачу SberHealth.ru.',
       rank: 3,
       avatarUrl: 'https://i.ibb.co/XtHBdPf/image-part-009.png',
       dateOfBirth: new Date('2001-02-01')
@@ -53,23 +54,24 @@ export class UserService {
       name: 'Don',
       surname: 'Romer',
       exp: 1337,
-      bio: '',
-      rank: 4,
+      bio: 'Учусь в МТУСИ (Московский университет связи и информатики) на заочном обучении (4 курс, специалитет), направление - "Информационные системы и технологии". Параллельно научился общим принципам разработки и языку Си в School21 от СБЕР\'а (аналог intra 42). После увлекался web-разработкой на Javascript/Python и blockchain технологиями (в частности Solana). Поскольку времени было достаточно, то большую его часть тратил на обучение по материалам из открытых источников (OSINT) и заработку на NFT, поэтому конкретного опыта работы немного.',
+      rank: 5,
       avatarUrl: 'https://i.ibb.co/KN1f5c7/image-part-007.png',
       dateOfBirth: new Date('2001-02-01')
     },
     {
       id: 5,
-      login: '1',
-      email: 'don@gmail.com',
+      login: 'haze27',
+      email: '1',
       password: '1',
-      name: 'Don',
-      surname: 'Romer',
-      exp: 1337,
-      bio: '',
-      rank: 5,
+      name: 'Степан',
+      surname: 'Беркунов',
+      exp: 2642,
+      bio: 'Приветствую! Я Степан - веб-разработчик из Москвы. Имею коммерческий опыт в разработке веб-приложений. Мой ключевой профессиональный навык - разработка приложений в стеке с Angular.\n' +
+        'Гитхаб - https://github.com/Haze272',
+      rank: 6,
       avatarUrl: 'https://i.ibb.co/KN1f5c7/image-part-007.png',
-      dateOfBirth: new Date('2001-02-01')
+      dateOfBirth: new Date('2002-02-27')
     }
   ];
 

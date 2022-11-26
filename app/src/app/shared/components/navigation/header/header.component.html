@@ -27,7 +27,7 @@
       Войти
     </a>
     <div class="userLogin" *ngIf="isLogged">
-      <a [routerLink]="['users', currentUser.id]">{{ currentUser.login }}</a>
+      <a [routerLink]="['/users', currentUser.id]">{{ currentUser.login }}</a>
     </div>
   </div>
 

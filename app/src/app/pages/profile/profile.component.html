@@ -9,15 +9,7 @@
         <h3>{{ user.login }}</h3>
         <p class="age">{{ user.name }} {{ user.surname }}, {{ getAge() }} {{ ageText() }}</p>
       </div>
-
-      <div class="expProgress">
-        <div class="progress-info">
-          <span class="rank">{{ userRank.name }}</span>
-          <span class="values">{{ user.exp }} / {{ nextRankExp }}</span>
-        </div>
-        <progress [max]="nextRankExp" [value]="user.exp"></progress>
-      </div>
-
+      <app-exp-progress [user]="user"></app-exp-progress>
       <div class="bio">
         <p>{{ user.bio }}</p>
       </div>
