@@ -1,38 +1,200 @@
+<style>
+    header {
+        background-color: var(--header-bg-color);
+        display: flex;
+        height: 70px;
+    }
+
+    header button {
+        border: none;
+    }
+
+    header a {
+        text-decoration: none;
+        color: white;
+    }
+
+    header a:not([class]):hover, a:not([class]):active{
+        color: var(--pink);
+    }
+
+    header a.imgLogoLink {
+        height: 50px;
+    }
+
+    .logoWrapper {
+        display: flex;
+    }
+
+    .logoWrapper .imgLogoWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logoWrapper a.imgLogoLink {
+        height: 53px;
+    }
+
+    .logoWrapper .logoText {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 36px;
+    }
+
+    .logoText span{
+        align-self: end;
+    }
+
+    .nav-wrapper {
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .navigation-items {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 20px;
+    }
+
+    .navigation-items li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .loginSection {
+        display: flex;
+        justify-self: end;
+        justify-content: center;
+        align-items: center;
+        margin-left: 14px;
+        cursor: pointer;
+    }
+
+    .loginButton {
+        padding: 10px 26px;
+        border-radius: 25px;
+        color: white;
+        border: 2px solid var(--pink);
+        transition: all .15s ease-in-out;
+    }
+
+    .loginButton:hover {
+         background-color: var(--pink);
+    }
+
+    .userLogin {
+        color: white;
+    }
+
+    .userLogin :hover {
+         color: var(--pink);
+    }
+
+    .menuButton {
+        justify-self: flex-end;
+        display: none;
+        margin: 10px;
+    }
+
+    .menu-icon {
+        font-size: 2em;
+        max-width: 45px;
+        text-align: center;
+        display: block;
+        margin: 15% auto;
+        cursor: pointer;
+        transition: transform .2s ease;
+    }
+    .menu-icon:hover {
+        transform: scale(0.9);
+    }
+    .menu-icon:before, .menu-icon:after {
+        line-height: .5;
+    }
+    .menu-icon:before {
+        content: '☰';
+        display: block;
+    }
+    .menu-icon:after {
+        content: '╳';
+        font-size: .75em;
+        font-weight: 800;
+        display: none;
+    }
+
+    #toggle-menu {
+        display: none;
+    }
+    #toggle-menu:checked ~ label[for="toggle-menu"] .menu-icon {
+         transform: rotate(180deg);
+    }
+    #toggle-menu:checked ~ label[for="toggle-menu"] .menu-icon:before {
+         display: none;
+    }
+    #toggle-menu:checked ~ label[for="toggle-menu"] .menu-icon:after {
+         display: block;
+    }
+
+    @media screen and (max-width: 480px) {
+        .logoText {
+            display: none !important;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        ul.navigation-items {
+            display: none;
+        }
+
+        .menuButton {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+    }
+</style>
 <header>
     <div class="logoWrapper">
         <div class="imgLogoWrapper">
-            <a routerLink="/" class="imgLogoLink">
-                <img src="/assets/img/logo.svg" alt="">
+            <a href="/" class="imgLogoLink">
+                <img src="/images/logo.svg" alt="">
             </a>
         </div>
         <div class="logoText">
-            <a class="logoText" routerLink="/">FLIT</a>
+            <a class="logoText" href="#">FLIT<span>admin</span></a>
         </div>
     </div>
     <div class="nav-wrapper">
         <ul class="navigation-items">
             <li>
-                <a routerLink="/" routerLinkActive="activeLink">Заказы</a>
+                <a href="#">Жалобы</a>
             </li>
             <li>
-                <a routerLink="/rules" routerLinkActive="activeLink">Отклики</a>
+                <a href="#">Диспуты</a>
             </li>
             <li>
-                <a routerLink="/server-list" routerLinkActive="activeLink">Специалисты</a>
+                <a href="#">Редактор</a>
             </li>
         </ul>
     </div>
     <div class="loginSection" >
-        <a class="loginButton" (click)="onClickAuth()" *ngIf="!isLogged;">
+        <a class="loginButton">
             Войти
         </a>
-        <div class="userLogin" *ngIf="isLogged">{{ currentUser.login }}</div>
+        <div class="userLogin">{{ currentUser.login }}</div>
     </div>
 
 
     <div class="menuButton">
         <a>
-            <input type="checkbox" [(ngModel)]="isChecked" (change)="onToggleSidenav()" id="toggle-menu"/>
+            <input type="checkbox" id="toggle-menu"/>
             <label for="toggle-menu">
                 <span class="menu-icon"></span>
             </label>
