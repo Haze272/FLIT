@@ -3,6 +3,7 @@
         background-color: var(--header-bg-color);
         display: flex;
         height: 70px;
+        justify-content: space-between;
     }
 
     header button {
@@ -47,24 +48,8 @@
         align-self: end;
     }
 
-    .nav-wrapper {
-        flex: 1 1 auto;
+    .buttons-wrapper {
         display: flex;
-        justify-content: flex-end;
-    }
-
-    .navigation-items {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        gap: 20px;
-    }
-
-    .navigation-items li {
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 
     .loginSection {
@@ -171,42 +156,69 @@
             <a class="logoText" href="#">FLIT<span>admin</span></a>
         </div>
     </div>
-    <div class="nav-wrapper">
-        <ul class="navigation-items">
-            <li>
-                <a href="#">Жалобы</a>
-            </li>
-            <li>
-                <a href="#">Диспуты</a>
-            </li>
-            <li>
-                <a href="#">Пользователи</a>
-            </li>
-            <li>
-                <a href="#">Задания</a>
-            </li>
-            <li>
-                <a href="#">Ранги</a>
-            </li>
-            <li>
-                <a href="#">Типы задания</a>
-            </li>
-        </ul>
-    </div>
-    <div class="loginSection" >
-        <a class="loginButton">
-            Войти
-        </a>
-        <div class="userLogin">{{ currentUser.login }}</div>
-    </div>
 
+    <div class="buttons-wrapper">
+        <div class="loginSection" >
+            <a class="loginButton">
+                Войти
+            </a>
+            <div class="userLogin">{{ currentUser.login }}</div>
+        </div>
 
-    <div class="menuButton">
-        <a>
-            <input type="checkbox" id="toggle-menu"/>
-            <label for="toggle-menu">
-                <span class="menu-icon"></span>
-            </label>
-        </a>
+        <div class="menuButton">
+            <a>
+                <input type="checkbox" id="toggle-menu"/>
+                <label for="toggle-menu">
+                    <span class="menu-icon"></span>
+                </label>
+            </a>
+        </div>
     </div>
 </header>
+
+<style>
+    nav.header-nav {
+        display: flex;
+        justify-content: space-between;
+        background-color: #fff;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .navigation-items {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 20px;
+        justify-content: start;
+    }
+
+    .navigation-items li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<nav class="header-nav">
+    <ul class="navigation-items">
+        <li>
+            <a href="#">Жалобы</a>
+        </li>
+        <li>
+            <a href="#">Диспуты</a>
+        </li>
+        <li>
+            <a href="#">Пользователи</a>
+        </li>
+        <li>
+            <a href="#">Задания</a>
+        </li>
+        <li>
+            <a href="#">Ранги</a>
+        </li>
+        <li>
+            <a href="#">Типы задания</a>
+        </li>
+    </ul>
+</nav>
