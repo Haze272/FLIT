@@ -45,6 +45,10 @@
                 justify-content: space-between;
             }
 
+            .control a:hover {
+                color: #e0e0e0;
+            }
+
             .price {
                 display: flex;
                 justify-content: center;
@@ -67,7 +71,7 @@
             {{#each tasks}}
                 <div class="task">
                     <div class="task-body">
-                        <a class="title">{{ this.title }}</a>
+                        <a href="/tasks/{{this.id}}" class="title">{{ this.title }}</a>
                         <div class="price">
                             <span>Цена: {{this.price}} руб.</span>
                         </div>
@@ -78,7 +82,7 @@
                         <span class="tags">{{this.tags}}</span>
                     </div>
                     <div class="control">
-                        <a href="">Редактировать</a>
+                        <a href="/tasks/{{this.id}}/edit">Редактировать</a>
                     </div>
                 </div>
             {{/each}}
