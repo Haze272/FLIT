@@ -148,11 +148,12 @@ select {
   font: inherit;
 }
 
-input {
+input, textarea {
   outline: none;
   background-color: #EEEEEE;
   border: none;
   padding: 10px 10px;
+  width: 100%;
 }
 
 input:active, input:hover,input:focus {

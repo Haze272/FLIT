@@ -30,12 +30,23 @@ taskRouter.get('/', (req, res) => {
 });
 
 taskRouter.get('/:task/edit', (req, res, next) => {
+  let taskTypes;
+  pool.query('SELECT * FROM task_type;', (error, result) => {
+    if (error) throw error;
+
+    taskTypes = result;
+  });
+
+
   pool.query('SELECT * FROM tasks WHERE id=' + req.params["task"] + ';', (error, result) => {
     if (error) throw error;
 
+
     res.render('editTask', {
       title: 'Редактирование задания',
-      task: result[0]
+      task: result[0],
+      allTaskTypes: taskTypes,
+      currentTaskType: taskTypes[result[0].task_type_id]
     });
   });
 });
