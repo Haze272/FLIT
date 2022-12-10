@@ -4,6 +4,7 @@ const pool = require('../data/config');
 const {response} = require("express");
 
 taskRouter = express.Router({mergeParams: true});
+userRouter = express.Router({mergeParams: true});
 
 const requiredAuth = (req, res, next) => {
   if (res.locals.currentUser.isGuest()) {
@@ -17,6 +18,7 @@ router.get('/', (req, res, next) => {
   res.render('index', { title: 'FLIT - Управление сервисом' });
 });
 router.use('/tasks', taskRouter);
+router.use('/users', userRouter)
 
 taskRouter.get('/', (req, res) => {
   pool.query('SELECT * FROM tasks;', (error, result) => {

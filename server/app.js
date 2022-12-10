@@ -7,6 +7,7 @@ const indexRouter = require('./routes/index');
 const itedCourseRouter = require('./routes/itedCourse');
 const hbs = require("hbs");
 const pool = require('./data/config');
+const sassMiddleware = require('node-sass-middleware');
 
 let app = express();
 
@@ -14,11 +15,21 @@ let app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials')
+hbs.registerHelper('equals', function(arg1, arg2, options) {
+  return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+});
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(sassMiddleware({
+  src: path.join(__dirname, 'public/'),
+  dest: path.join(__dirname, 'public/'),
+  indentedSyntax: false, // true = .sass and false = .scss
+  sourceMap: true,
+  debug: true
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
