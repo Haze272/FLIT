@@ -4,17 +4,30 @@ const {response} = require("express");
 
 userRouter = express.Router({mergeParams: true});
 
-userRouter.get('/', (req, res) => {
-    pool.query('SELECT * FROM tasks;', (error, result) => {
+userRouter.get('/customers', (req, res) => {
+    pool.query('SELECT * FROM customers;', (error, result) => {
         if (error) throw error;
 
-        res.render('list/tasks', {
-            title: 'Просмотр и редактирование заданий',
-            tasks: result
+        res.render('list/customers', {
+            title: 'Заказчики',
+            customers: result
         });
     });
 });
 
+userRouter.get('/performers', (req, res) => {
+
+    pool.query('SELECT * FROM performers;', (error, result) => {
+        if (error) throw error;
+
+        res.render('list/performers', {
+            title: 'Исполнители',
+            performers: result
+        });
+    });
+});
+
+// TODO
 userRouter.get('/:users/edit', (req, res, next) => {
     let taskTypes;
     pool.query('SELECT * FROM task_type;', (error, result) => {
@@ -36,4 +49,4 @@ userRouter.get('/:users/edit', (req, res, next) => {
     });
 });
 
-module.exports = taskRouter;
+module.exports = userRouter;

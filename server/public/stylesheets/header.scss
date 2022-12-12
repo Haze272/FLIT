@@ -1,0 +1,223 @@
+header {
+  background-color: var(--header-bg-color);
+  display: flex;
+  height: 70px;
+  justify-content: space-between;
+}
+
+header button {
+  border: none;
+}
+
+header a {
+  text-decoration: none;
+  color: white;
+}
+
+header a:not([class]):hover, a:not([class]):active{
+  color: var(--pink);
+}
+
+header a.imgLogoLink {
+  height: 50px;
+}
+
+.logoWrapper {
+  display: flex;
+}
+
+.logoWrapper .imgLogoWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoWrapper a.imgLogoLink {
+  height: 53px;
+}
+
+.logoWrapper .logoText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+}
+
+.logoText span{
+  align-self: end;
+}
+
+.buttons-wrapper {
+  display: flex;
+}
+
+.loginSection {
+  display: flex;
+  justify-self: end;
+  justify-content: center;
+  align-items: center;
+  margin-left: 14px;
+  cursor: pointer;
+}
+
+.loginButton {
+  padding: 10px 26px;
+  border-radius: 25px;
+  color: white;
+  border: 2px solid var(--pink);
+  transition: all .15s ease-in-out;
+}
+
+.loginButton:hover {
+  background-color: var(--pink);
+}
+
+.userLogin {
+  color: white;
+}
+
+.userLogin :hover {
+  color: var(--pink);
+}
+
+.menuButton {
+  justify-self: flex-end;
+  display: none;
+  margin: 10px;
+}
+
+.menu-icon {
+  font-size: 2em;
+  max-width: 45px;
+  text-align: center;
+  display: block;
+  margin: 15% auto;
+  cursor: pointer;
+  transition: transform .2s ease;
+}
+.menu-icon:hover {
+  transform: scale(0.9);
+}
+.menu-icon:before, .menu-icon:after {
+  line-height: .5;
+}
+.menu-icon:before {
+  content: '☰';
+  display: block;
+}
+.menu-icon:after {
+  content: '╳';
+  font-size: .75em;
+  font-weight: 800;
+  display: none;
+}
+
+#toggle-menu {
+  display: none;
+}
+#toggle-menu:checked ~ label[for="toggle-menu"] .menu-icon {
+  transform: rotate(180deg);
+}
+#toggle-menu:checked ~ label[for="toggle-menu"] .menu-icon:before {
+  display: none;
+}
+#toggle-menu:checked ~ label[for="toggle-menu"] .menu-icon:after {
+  display: block;
+}
+
+@media screen and (max-width: 480px) {
+  .logoText {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  ul.navigation-items {
+    display: none;
+  }
+
+  .menuButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  max-height: 52px;
+  background-color: #fff;
+  box-shadow: var(--shadow);
+
+  text-align: center;
+  & a {
+    text-decoration: none;
+    display: block;
+    transition: .3s linear;
+  }
+  & ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.topmenu {
+  display: flex;
+  gap: 15px;
+  height: 100%;
+
+  & > li {
+    display: inline-block;
+    position: relative;
+    & > a {
+      padding: 14px 0;
+      font-size: 16px;
+    }
+  }
+}
+
+.topmenu .active,
+.topmenu > li > a:hover,
+.submenu li a:hover {
+  color: #2a2929;
+  cursor: pointer;
+}
+
+.submenu {
+  position: absolute;
+  left: -1px;
+  z-index: 5;
+  width: 240px;
+  border-bottom: 1px solid #646769;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: .3s ease-in-out;
+  & li {
+    position: relative;
+  }
+  & a {
+    background: white;
+    color: #5b5b5b;
+    text-align: left;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+  }
+  & .submenu {
+    position: absolute;
+    top: 0;
+    left: calc(100% - 1px);
+    left: -webkit-calc(100% - 1px);
+  }
+}
+
+nav li:hover > .submenu {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0px);
+}

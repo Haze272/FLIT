@@ -9,3 +9,6 @@ server/service.mwb
 server/service.mwb.bak
 server/service.sql
 server/data/dbuser.json 
+server/public/stylesheets/style.css
+server/public/stylesheets/style.css.map
+server/public/stylesheets/style.css
