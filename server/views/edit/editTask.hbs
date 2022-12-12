@@ -1,0 +1,47 @@
+<style>
+    .task {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+</style>
+<section>
+    <main>
+        <form method="post">
+            <div class="task">
+                <h1>Редактирование задания №{{task.id}}</h1>
+                <p>id автора: {{task.customers_id}}</p>
+                <p>id куратора: {{task.admins_id}}</p>
+                <p>Дата создания: {{task.created_at}}</p>
+                <p>Дата редактирования: {{task.updated_at}}</p>
+                <p>id исполнителя:
+                    <input type="number" value="{{task.performers_id}}">
+                </p>
+                <p>Название:
+                    <input type="text" value="{{task.title}}">
+                </p>
+                <p>Описание:
+                    <textarea name="description" id="" cols="30" rows="10">{{task.decription}}</textarea>
+                </p>
+                <p>Цена:
+                    <input type="number" value="{{task.price}}">
+                </p>
+                <p>Теги (редактировать через разделитель ,[пробел]:
+                    <input type="text" value="{{task.tags}}">
+                </p>
+                <p>Тип задания:
+                    <select name="task_type" id="">
+                        <option value="">--Выберите тип--</option>
+                        {{#each allTaskTypes}}
+                            <option {{#equals this.id ../task.task_type_id}}selected{{/equals}} value="{{this.id}}">{{this.name}}</option>
+                        {{/each}}
+                    </select>
+                </p>
+                <button>Применить изменения</button>
+            </div>
+        </form>
+    </main>
+    <div class="side-info">
+
+    </div>
+</section>
