@@ -5,7 +5,7 @@ const {response} = require("express");
 
 taskRouter = require('./taskRouter');
 userRouter = require('./userRouter');
-//ranksRouter = require('./ranksRouter');
+ranksRouter = require('./ranksRouter');
 
 const requiredAuth = (req, res, next) => {
   if (res.locals.currentUser.isGuest()) {
@@ -20,6 +20,6 @@ router.get('/', (req, res, next) => {
 });
 router.use('/tasks', taskRouter);
 router.use('/users', userRouter);
-//router.use('/ranks', ranksRouter);
+router.use('/ranks', ranksRouter);
 
 module.exports = router;

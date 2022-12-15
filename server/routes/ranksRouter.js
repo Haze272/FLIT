@@ -4,13 +4,25 @@ const {response} = require("express");
 
 ranksRouter = express.Router({mergeParams: true});
 
-ranksRouter.get('/', (req, res) => {
-    pool.query('SELECT * FROM tasks;', (error, result) => {
+ranksRouter.get('/customers', (req, res) => {
+    pool.query('SELECT * FROM ranks_customer;', (error, result) => {
         if (error) throw error;
 
-        res.render('tasks', {
-            title: 'Просмотр и редактирование заданий',
-            tasks: result
+        res.render('list/ranks', {
+            title: 'Ранги заказчиков',
+            ranks: result
+        });
+    });
+});
+
+ranksRouter.get('/performers', (req, res) => {
+
+    pool.query('SELECT * FROM ranks_performer;', (error, result) => {
+        if (error) throw error;
+
+        res.render('list/ranks', {
+            title: 'Ранги исполнителей',
+            ranks: result
         });
     });
 });
