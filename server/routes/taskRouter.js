@@ -9,8 +9,19 @@ taskRouter.get('/', (req, res) => {
         if (error) throw error;
 
         res.render('list/tasks', {
-            title: 'Просмотр и редактирование заданий',
+            title: 'Задания',
             tasks: result
+        });
+    });
+});
+
+taskRouter.get('/types/list', (req, res) => {
+    pool.query('SELECT * FROM task_type;', (error, result) => {
+        if (error) throw error;
+
+        res.render('list/task_types', {
+            title: 'Типы заданий',
+            task_types: result
         });
     });
 });
