@@ -392,4 +392,45 @@ nav li:hover > .submenu {
       width: 18px;
       height: 18px; }
 
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px; }
+  .listContainer .item {
+    display: flex;
+    padding: 10px 5px; }
+    .listContainer .item:nth-child(even) {
+      background-color: #f3f3f3; }
+    .listContainer .item span {
+      color: #4f6173; }
+    .listContainer .item a {
+      color: #4f6173; }
+      .listContainer .item a:hover {
+        color: #2d343d; }
+    .listContainer .item .avatar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 140px;
+      border-radius: 50%;
+      overflow: hidden; }
+    .listContainer .item .item-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+      gap: 5px; }
+      .listContainer .item .item-body .item-title {
+        font-size: 24px; }
+    .listContainer .item .actions {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; }
+      .listContainer .item .actions a {
+        padding: 10px;
+        color: white;
+        background-color: var(--pink); }
+      .listContainer .item .actions a:hover {
+        color: #e0e0e0; }
+
 /*# sourceMappingURL=style.css.map */

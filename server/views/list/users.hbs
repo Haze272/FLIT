@@ -1,0 +1,26 @@
+<section>
+    <main>
+        <h1>{{title}}</h1>
+        <input type="text" placeholder="Фамилия, имя">
+        <div class="listContainer">
+            {{#each users}}
+                <div class="item">
+                    <div class="avatar">
+                        <img src="{{this.avatar_url}}" alt="">
+                    </div>
+                    <div class="item-body">
+                        <span class="item-info">{{this.name}} {{this.surname}}</span>
+                        <span class="item-info">Опыт: {{this.exp}}</span>
+                        <span class="item-info">{{this.email}}</span>
+                        <span class="item-info">{{this.tags}}</span>
+                        <span class="item-info">Титул: {{this.rank_name}}</span>
+                    </div>
+                    <div class="actions">
+                        <a href="/tasks/{{this.id}}/edit">Редактировать</a>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </main>
+    <div class="side-info"></div>
+</section>
