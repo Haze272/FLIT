@@ -399,7 +399,8 @@ nav li:hover > .submenu {
   margin-top: 15px; }
   .listContainer .item {
     display: flex;
-    padding: 10px 5px; }
+    padding: 10px 5px;
+    gap: 10px; }
     .listContainer .item:nth-child(even) {
       background-color: #f3f3f3; }
     .listContainer .item span {
