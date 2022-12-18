@@ -26,24 +26,17 @@ taskRouter.get('/types/list', (req, res) => {
     });
 });
 
-taskRouter.get('/:task/edit', (req, res, next) => {
+taskRouter.get('/:task/edit', async (req, res, next) => {
     let taskTypes;
-    pool.query('SELECT * FROM task_type;', (error, result) => {
-        if (error) throw error;
-
-        taskTypes = result;
-    });
+    taskTypes =  await pool.promise().query('SELECT * FROM task_type;').then( ([rows,fields]) => rows);
 
 
-    pool.query('SELECT * FROM tasks WHERE id=' + req.params["task"] + ';', (error, result) => {
-        if (error) throw error;
+    const result = await pool.promise().query('SELECT * FROM tasks WHERE id=' + req.params["task"] + ';').then( ([rows,fields]) => rows);
 
-        console.log(result[0])
-        res.render('edit/editTask', {
-            title: 'Редактирование задания',
-            task: result[0],
-            allTaskTypes: taskTypes
-        });
+    res.render('edit/editTask', {
+        title: 'Редактирование задания',
+        task: result[0],
+        allTaskTypes: taskTypes
     });
 });
 taskRouter.post('/:task/edit', (req, res) => {
