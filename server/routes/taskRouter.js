@@ -38,13 +38,34 @@ taskRouter.get('/:task/edit', (req, res, next) => {
     pool.query('SELECT * FROM tasks WHERE id=' + req.params["task"] + ';', (error, result) => {
         if (error) throw error;
 
-
+        console.log(result[0])
         res.render('edit/editTask', {
             title: 'Редактирование задания',
             task: result[0],
             allTaskTypes: taskTypes
         });
     });
+});
+taskRouter.post('/:task/edit', (req, res) => {
+    if (!req.body) {
+        return res.sendStatus(400);
+    }
+    console.log(req.body);
+    pool.query(
+        'UPDATE tasks SET\n' +
+        'performers_id = ' + req.body.performers_id + ', \n' +
+        'title = \'' + req.body.title + '\', \n' +
+        'decription = \'' + req.body.description + '\',\n' +
+        'price = ' + req.body.price + ',\n' +
+        'tags = \'' + req.body.tags + '\', \n' +
+        'task_type_id = ' + req.body.task_type + '\n' +
+        //'status_id = 2\n' +
+        'WHERE id=' + req.params['task'] + ';',
+        (err) => {
+            if (err) console.log(err);
+            res.redirect('/tasks');
+        }
+    );
 });
 
 module.exports = taskRouter;
