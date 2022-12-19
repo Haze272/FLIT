@@ -26,6 +26,33 @@ taskRouter.get('/types/list', (req, res) => {
     });
 });
 
+taskRouter.get('/types/:type/edit', async (req, res) => {
+    const result = await pool.promise().query('SELECT * FROM task_type WHERE id=' + req.params["type"] + ';').then( ([rows,fields]) => rows);
+
+    res.render('edit/editTaskType', {
+        title: 'Редактирование типа задания',
+        type: result[0]
+    });
+});
+taskRouter.post('/types/:type/edit', (req, res) => {
+    if (!req.body) {
+        return res.sendStatus(400);
+    }
+
+    let sql = 'UPDATE task_type SET\n' +
+        'name = \'' + req.body.name + '\',\n' +
+        'description = \'' + req.body.description + '\'\n' +
+        'WHERE id=' + req.params["type"] + ';';
+
+    pool.query(
+        sql,
+        (err) => {
+            if (err) console.log(err);
+            res.redirect('/tasks/types/list');
+        }
+    );
+});
+
 taskRouter.get('/:task/edit', async (req, res, next) => {
     let taskTypes = await pool.promise().query('SELECT * FROM task_type;').then(([rows,fields]) => rows);
     let statuses = await pool.promise().query('SELECT * FROM task_status;').then(([rows,fields]) => rows);

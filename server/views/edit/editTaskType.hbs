@@ -1,0 +1,18 @@
+<section>
+    <main>
+        <form method="post">
+            <div class="editForm">
+                <h1>Редактирование типа задания №{{type.id}}</h1>
+                <p>Дата создания: {{type.created_at}}</p>
+                <p>Дата редактирования: {{type.updated_at}}</p>
+                <p>Название:
+                    <input type="text" value="{{type.name}}" name="name">
+                </p>
+                <p>Описание:
+                    <input type="text" value="{{type.description}}" name="description">
+                </p>
+                <input type="submit" value="Применить изменения">
+            </div>
+        </form>
+    </main>
+</section>

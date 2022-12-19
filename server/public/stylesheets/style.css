@@ -434,4 +434,9 @@ nav li:hover > .submenu {
       .listContainer .item .actions a:hover {
         color: #e0e0e0; }
 
+.editForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; }
+
 /*# sourceMappingURL=style.css.map */
