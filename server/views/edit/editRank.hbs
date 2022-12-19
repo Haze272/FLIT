@@ -1,0 +1,21 @@
+<section>
+    <main>
+        <form method="post">
+            <div class="editForm">
+                <h1>Редактирование ранга сущности {{type}} №{{rank.id}}</h1>
+                <p>Дата создания: {{rank.created_at}}</p>
+                <p>Дата редактирования: {{rank.updated_at}}</p>
+                <p>Название:
+                    <input type="text" value="{{rank.name}}" name="name">
+                </p>
+                <p>Описание:
+                    <input type="text" value="{{rank.description}}" name="description">
+                </p>
+                <p>Необходимый опыт:
+                    <input type="number" value="{{rank.exp_required}}" name="exp_required">
+                </p>
+                <input type="submit" value="Применить изменения">
+            </div>
+        </form>
+    </main>
+</section>
