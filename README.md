@@ -42,7 +42,6 @@ npm run start
 | Действие | Метод HTTP | Относительный универсальный код ресурса (URI) |
 | ------ | ------ | ------ |
 | Главная страница | GET | / |
-|
 | **Задания** |
 | Список заданий | GET | /tasks |
 | Редактирование задания | GET | /tasks/:task/edit |
@@ -50,13 +49,11 @@ npm run start
 | Список типов заданий | GET | /tasks/types/list |
 | Редактирование задания | GET | /tasks/types/:type/edit |
 | Обновление задания | POST | /tasks/types/:type/edit |
-|
 | **Пользователи** |
 | Список заказчиков | GET | /users/customers |
 | Список исполнителей | GET | /users/performers |
 | Редактирование пользователя | GET | /users/:user/edit |
 | Обновление пользователя | POST | /users/:user/edit |
-|
 | **Ранги** |
 | Список рангов заказчиков | GET | /ranks/customers |
 | Список рангов исполнителей | GET | /ranks/performers |
