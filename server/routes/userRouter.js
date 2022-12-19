@@ -27,7 +27,8 @@ userRouter.get('/customers', (req, res) => {
 
         res.render('list/users', {
             title: 'Заказчики',
-            users: result
+            users: result,
+            type: 'customers'
         });
     });
 });
@@ -56,31 +57,68 @@ userRouter.get('/performers', (req, res) => {
 
         res.render('list/users', {
             title: 'Исполнители',
-            users: result
+            users: result,
+            type: 'performers'
         });
     });
 });
 
-// TODO
-userRouter.get('/:users/edit', (req, res, next) => {
-    let taskTypes;
-    pool.query('SELECT * FROM task_type;', (error, result) => {
-        if (error) throw error;
 
-        taskTypes = result;
+userRouter.get('/:user/edit', async (req, res, next) => {
+    let ranks, result, userRank;
+    if (req.query.type == 'customers') {
+        ranks = await pool.promise().query('SELECT * FROM ranks_customer;').then( ([rows,fields]) => rows);
+        result = await pool.promise().query('SELECT * FROM customers WHERE id=' + req.params["user"] + ';').then( ([rows,fields]) => rows);
+        userRank = await pool.promise().query('SELECT * FROM ranks_customer WHERE id=' + result[0].ranks_customer_id + ';').then( ([rows,fields]) => rows);
+    } else if (req.query.type == 'performers') {
+        ranks = await pool.promise().query('SELECT * FROM ranks_performer;').then( ([rows,fields]) => rows);
+        result = await pool.promise().query('SELECT * FROM performers WHERE id=' + req.params["user"] + ';').then( ([rows,fields]) => rows);
+        userRank = await pool.promise().query('SELECT * FROM ranks_performer WHERE id=' + result[0].ranks_performer_id + ';').then( ([rows,fields]) => rows);
+    }
+    res.render('edit/editUser', {
+        title: 'Пользователь',
+        user: result[0],
+        userRank: userRank[0].name,
+        ranks: ranks
     });
+});
+userRouter.post('/:user/edit', (req, res) => {
+    if (!req.body) {
+        return res.sendStatus(400);
+    }
 
+    let sql;
+    if (req.query.type == 'customers') {
+       sql = 'UPDATE customers SET\n' +
+           'name = \'' + req.body.name + '\', \n' +
+           'surname = \'' + req.body.surname + '\', \n' +
+           'exp = \'' + req.body.exp + '\', \n' +
+           'email = \'' + req.body.email + '\', \n' +
+           'password = \'' + req.body.password + '\', \n' +
+           'bio = \'' + req.body.bio + '\'\n' +
+           'WHERE id=' + req.params['user'] + ';';
+    } else if (req.query.type == 'performers') {
+        sql = 'UPDATE performers SET\n' +
+            'name = \'' + req.body.name + '\', \n' +
+            'surname = \'' + req.body.surname + '\', \n' +
+            'exp = \'' + req.body.exp + '\', \n' +
+            'email = \'' + req.body.email + '\', \n' +
+            'password = \'' + req.body.password + '\', \n' +
+            'bio = \'' + req.body.bio + '\'\n' +
+            'WHERE id=' + req.params['user'] + ';';
+    }
 
-    pool.query('SELECT * FROM tasks WHERE id=' + req.params["task"] + ';', (error, result) => {
-        if (error) throw error;
-
-
-        res.render('edit/editUser', {
-            title: 'Редактирование задания',
-            task: result[0],
-            allTaskTypes: taskTypes
-        });
-    });
+    pool.query(
+        sql,
+        (err) => {
+            if (err) console.log(err);
+            if (req.query.type == 'customers') {
+                res.redirect('/users/customers');
+            } else if (req.query.type == 'performers') {
+                res.redirect('/users/performers');
+            }
+        }
+    );
 });
 
 module.exports = userRouter;

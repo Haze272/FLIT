@@ -27,33 +27,48 @@ taskRouter.get('/types/list', (req, res) => {
 });
 
 taskRouter.get('/:task/edit', async (req, res, next) => {
-    let taskTypes;
-    taskTypes =  await pool.promise().query('SELECT * FROM task_type;').then( ([rows,fields]) => rows);
-
+    let taskTypes = await pool.promise().query('SELECT * FROM task_type;').then(([rows,fields]) => rows);
+    let statuses = await pool.promise().query('SELECT * FROM task_status;').then(([rows,fields]) => rows);
 
     const result = await pool.promise().query('SELECT * FROM tasks WHERE id=' + req.params["task"] + ';').then( ([rows,fields]) => rows);
 
     res.render('edit/editTask', {
         title: 'Редактирование задания',
         task: result[0],
-        allTaskTypes: taskTypes
+        allTaskTypes: taskTypes,
+        statuses: statuses
     });
 });
 taskRouter.post('/:task/edit', (req, res) => {
     if (!req.body) {
         return res.sendStatus(400);
     }
-    console.log(req.body);
+
+    let sql;
+    if (req.body.performers_id != '') {
+        sql = 'UPDATE tasks SET\n' +
+            'performers_id = ' + req.body.performers_id + ', \n' +
+            'title = \'' + req.body.title + '\', \n' +
+            'decription = \'' + req.body.description + '\',\n' +
+            'price = ' + req.body.price + ',\n' +
+            'tags = \'' + req.body.tags + '\', \n' +
+            'task_type_id = ' + req.body.task_type + ', \n' +
+            'status_id = ' + req.body.status_id + '\n' +
+            'WHERE id=' + req.params["task"] + ';';
+    } else {
+        sql = 'UPDATE tasks SET\n' +
+            'performers_id = ' + 'null' + ', \n' +
+            'title = \'' + req.body.title + '\', \n' +
+            'decription = \'' + req.body.description + '\',\n' +
+            'price = ' + req.body.price + ',\n' +
+            'tags = \'' + req.body.tags + '\', \n' +
+            'task_type_id = ' + req.body.task_type + ', \n' +
+            'status_id = ' + req.body.status_id + '\n' +
+            'WHERE id=' + req.params["task"] + ';';
+    }
+
     pool.query(
-        'UPDATE tasks SET\n' +
-        'performers_id = ' + req.body.performers_id + ', \n' +
-        'title = \'' + req.body.title + '\', \n' +
-        'decription = \'' + req.body.description + '\',\n' +
-        'price = ' + req.body.price + ',\n' +
-        'tags = \'' + req.body.tags + '\', \n' +
-        'task_type_id = ' + req.body.task_type + '\n' +
-        //'status_id = 2\n' +
-        'WHERE id=' + req.params['task'] + ';',
+        sql,
         (err) => {
             if (err) console.log(err);
             res.redirect('/tasks');

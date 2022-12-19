@@ -26,7 +26,15 @@
                     <select name="task_type" id="">
                         <option value="">--Выберите тип--</option>
                         {{#each allTaskTypes}}
-                            <option {{#equals this.id ../task.task_type}}selected{{/equals}} value="{{this.id}}">{{this.name}}</option>
+                            <option {{#equals this.id ../task.task_type_id}}selected{{/equals}} value="{{this.id}}">{{this.name}}</option>
+                        {{/each}}
+                    </select>
+                </p>
+                <p>Статус:
+                    <select name="status_id" id="">
+                        <option value="">--Выберите тип--</option>
+                        {{#each statuses}}
+                            <option {{#equals this.id ../task.status_id}}selected{{/equals}} value="{{this.id}}">{{this.status}}</option>
                         {{/each}}
                     </select>
                 </p>
